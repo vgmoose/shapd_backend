@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shape.name %>
+</p>
+
+<p>
+  <strong>Shape:</strong>
+  <%= @shape.shape %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @shape.user_id %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @shape.public %>
+</p>
+
+<%= link_to 'Edit', edit_shape_path(@shape) %> |
+<%= link_to 'Back', shapes_path %>
