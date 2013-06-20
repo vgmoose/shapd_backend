@@ -1,4 +1,7 @@
 Shapd::Application.routes.draw do
+  resources :splashes
+
+  resources :users
   resources :shapes
 
 #  devise_for :users
@@ -6,8 +9,13 @@ Shapd::Application.routes.draw do
     get '/login'   => "devise/sessions#new",       :as => :new_user_session
     post '/login'  => 'devise/sessions#create',    :as => :user_session
     get '/logout'  => 'devise/sessions#destroy',   :as => :destroy_user_session
+
     get "/register"   => "devise/registrations#new",   :as => :new_user_registration
   end
+    
+    get '/demo/' => 'shapd_app#index'
+    post '/signup'  => 'splashes#create'   
+
   resources :authentications
   get "home/index"
   root "home#index"

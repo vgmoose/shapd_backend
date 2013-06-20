@@ -46,10 +46,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise', '~> 3.0.0.rc'
-gem 'omniauth-twitter'
-gem 'omniauth-facebook'
-gem 'twitter'
-gem 'fb_graph'
 gem 'nifty-generators'
 
 gem "mocha", group: :test
+gem "pry"

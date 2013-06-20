@@ -86,7 +86,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "2db8759516d438755a33caf888056a553c86d40e35c11bec8c0c15ae96ea11a82a79479fb5fd1d68e9c1fbfab8d3dc807d07c5bf93b6dbd93c98f82d54112e4e"
+  # config.pepper = "fe4a29d5f826ad4bf18f175b03c07b5620ad4cb3db525f0fcc490a9e3f12651d617b603b7995cd70cb79971d0a527aa442b72ba440b49d976ddbb50c35effd23"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -217,8 +217,6 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
- # config.omniauth :twitter, ENV["usuUahHoN7lf2wC5ogMnQ"], ENV["nP4t9xqLWvivqIINbeS8VleB9ZpjgLcIRybYlJF0Q"]
- # config.omniauth :facebook, '611485622203669', 'd2d424259a74471b8ae332f3f1c0119e' 
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
