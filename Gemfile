@@ -50,3 +50,5 @@ gem 'nifty-generators'
 
 gem "mocha", group: :test
 gem "pry"
+gem "pry-remote"
+

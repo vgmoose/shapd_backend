@@ -14,7 +14,10 @@ Shapd::Application.routes.draw do
   end
     
     get '/demo/' => 'shapd_app#index'
-    post '/signup'  => 'splashes#create'   
+    get '/demo/:id' => 'shapd_app#edit'
+    
+    post '/signup'  => 'splashes#create'
+    post '/save' => 'shapes#save'
 
   resources :authentications
   get "home/index"

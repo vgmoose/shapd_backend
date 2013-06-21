@@ -1,0 +1,3578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:"
+      name = "">
+      <Group
+         location = "group:app"
+         name = "app">
+         <Group
+            location = "group:assets"
+            name = "assets">
+            <Group
+               location = "group:images"
+               name = "images">
+            </Group>
+            <Group
+               location = "group:javascripts"
+               name = "javascripts">
+               <FileRef
+                  location = "group:application.js">
+               </FileRef>
+               <FileRef
+                  location = "group:home.js.coffee">
+               </FileRef>
+               <FileRef
+                  location = "group:shapes.js.coffee">
+               </FileRef>
+               <FileRef
+                  location = "group:splashes.js.coffee">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:stylesheets"
+               name = "stylesheets">
+               <FileRef
+                  location = "group:application.css">
+               </FileRef>
+               <FileRef
+                  location = "group:home.css.scss">
+               </FileRef>
+               <FileRef
+                  location = "group:scaffolds.css.scss">
+               </FileRef>
+               <FileRef
+                  location = "group:shapes.css.scss">
+               </FileRef>
+               <FileRef
+                  location = "group:splashes.css.scss">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:controllers"
+            name = "controllers">
+            <FileRef
+               location = "group:application_controller.rb">
+            </FileRef>
+            <FileRef
+               location = "group:authentications_controller.rb">
+            </FileRef>
+            <Group
+               location = "group:concerns"
+               name = "concerns">
+            </Group>
+            <FileRef
+               location = "group:home_controller.rb">
+            </FileRef>
+            <FileRef
+               location = "group:shapd_app_controller.rb">
+            </FileRef>
+            <FileRef
+               location = "group:shapes_controller.rb">
+            </FileRef>
+            <FileRef
+               location = "group:splashes_controller.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:helpers"
+            name = "helpers">
+            <FileRef
+               location = "group:application_helper.rb">
+            </FileRef>
+            <FileRef
+               location = "group:authentications_helper.rb">
+            </FileRef>
+            <FileRef
+               location = "group:home_helper.rb">
+            </FileRef>
+            <FileRef
+               location = "group:shapes_helper.rb">
+            </FileRef>
+            <FileRef
+               location = "group:splashes_helper.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:mailers"
+            name = "mailers">
+            <FileRef
+               location = "group:notifier.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:models"
+            name = "models">
+            <FileRef
+               location = "group:authentication.rb">
+            </FileRef>
+            <Group
+               location = "group:concerns"
+               name = "concerns">
+            </Group>
+            <FileRef
+               location = "group:shape.rb">
+            </FileRef>
+            <FileRef
+               location = "group:splash.rb">
+            </FileRef>
+            <FileRef
+               location = "group:user.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:views"
+            name = "views">
+            <Group
+               location = "group:authentications"
+               name = "authentications">
+               <FileRef
+                  location = "group:index.html.erb">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:home"
+               name = "home">
+               <FileRef
+                  location = "group:index.html.erb">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:layouts"
+               name = "layouts">
+               <FileRef
+                  location = "group:application.html.erb">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:notifier"
+               name = "notifier">
+               <FileRef
+                  location = "group:welcome.html.erb">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:shapd_app"
+               name = "shapd_app">
+               <FileRef
+                  location = "group:edit.html.erb">
+               </FileRef>
+               <FileRef
+                  location = "group:index.html.erb">
+               </FileRef>
+               <FileRef
+                  location = "group:index.js">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:shapes"
+               name = "shapes">
+               <FileRef
+                  location = "group:_form.html.erb">
+               </FileRef>
+               <FileRef
+                  location = "group:edit.html.erb">
+               </FileRef>
+               <FileRef
+                  location = "group:index.html.erb">
+               </FileRef>
+               <FileRef
+                  location = "group:index.json.jbuilder">
+               </FileRef>
+               <FileRef
+                  location = "group:new.html.erb">
+               </FileRef>
+               <FileRef
+                  location = "group:show.html.erb">
+               </FileRef>
+               <FileRef
+                  location = "group:show.json.jbuilder">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "group:bin"
+         name = "bin">
+         <FileRef
+            location = "group:bundle">
+         </FileRef>
+         <FileRef
+            location = "group:rails">
+         </FileRef>
+         <FileRef
+            location = "group:rake">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:config"
+         name = "config">
+         <FileRef
+            location = "group:application.rb">
+         </FileRef>
+         <FileRef
+            location = "group:boot.rb">
+         </FileRef>
+         <FileRef
+            location = "group:database.yml">
+         </FileRef>
+         <FileRef
+            location = "group:environment.rb">
+         </FileRef>
+         <Group
+            location = "group:environments"
+            name = "environments">
+            <FileRef
+               location = "group:development.rb">
+            </FileRef>
+            <FileRef
+               location = "group:production.rb">
+            </FileRef>
+            <FileRef
+               location = "group:test.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:initializers"
+            name = "initializers">
+            <FileRef
+               location = "group:backtrace_silencers.rb">
+            </FileRef>
+            <FileRef
+               location = "group:devise.rb">
+            </FileRef>
+            <FileRef
+               location = "group:filter_parameter_logging.rb">
+            </FileRef>
+            <FileRef
+               location = "group:inflections.rb">
+            </FileRef>
+            <FileRef
+               location = "group:mime_types.rb">
+            </FileRef>
+            <FileRef
+               location = "group:secret_token.rb">
+            </FileRef>
+            <FileRef
+               location = "group:session_store.rb">
+            </FileRef>
+            <FileRef
+               location = "group:wrap_parameters.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:locales"
+            name = "locales">
+            <FileRef
+               location = "group:devise.en.yml">
+            </FileRef>
+            <FileRef
+               location = "group:en.yml">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:routes.rb">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:config.ru">
+      </FileRef>
+      <Group
+         location = "group:db"
+         name = "db">
+         <FileRef
+            location = "group:development.sqlite3">
+         </FileRef>
+         <Group
+            location = "group:migrate"
+            name = "migrate">
+            <FileRef
+               location = "group:20130615093458_create_authentications.rb">
+            </FileRef>
+            <FileRef
+               location = "group:20130616035037_devise_create_users.rb">
+            </FileRef>
+            <FileRef
+               location = "group:20130618053714_create_shapes.rb">
+            </FileRef>
+            <FileRef
+               location = "group:20130619185539_create_splashes.rb">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:schema.rb">
+         </FileRef>
+         <FileRef
+            location = "group:seeds.rb">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Gemfile">
+      </FileRef>
+      <FileRef
+         location = "group:Gemfile.lock">
+      </FileRef>
+      <Group
+         location = "group:lib"
+         name = "lib">
+         <Group
+            location = "group:assets"
+            name = "assets">
+         </Group>
+         <FileRef
+            location = "group:custom_failure.rb">
+         </FileRef>
+         <Group
+            location = "group:tasks"
+            name = "tasks">
+         </Group>
+      </Group>
+      <Group
+         location = "group:log"
+         name = "log">
+         <FileRef
+            location = "group:development.log">
+         </FileRef>
+         <FileRef
+            location = "group:production.log">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:public"
+         name = "public">
+         <FileRef
+            location = "group:404.html">
+         </FileRef>
+         <FileRef
+            location = "group:422.html">
+         </FileRef>
+         <FileRef
+            location = "group:500.html">
+         </FileRef>
+         <Group
+            location = "group:assets"
+            name = "assets">
+            <FileRef
+               location = "group:application-bae4bcecc18d0dae0d1a03328c4f504d.js">
+            </FileRef>
+            <FileRef
+               location = "group:application-bae4bcecc18d0dae0d1a03328c4f504d.js.gz">
+            </FileRef>
+            <FileRef
+               location = "group:application-f1a14051f17824976271b9c0460232f0.css">
+            </FileRef>
+            <FileRef
+               location = "group:application-f1a14051f17824976271b9c0460232f0.css.gz">
+            </FileRef>
+            <Group
+               location = "group:imgs"
+               name = "imgs">
+               <FileRef
+                  location = "group:addLoop.png">
+               </FileRef>
+               <FileRef
+                  location = "group:addLoop.psd">
+               </FileRef>
+               <FileRef
+                  location = "group:hRuler.png">
+               </FileRef>
+               <FileRef
+                  location = "group:hRuler2.png">
+               </FileRef>
+               <Group
+                  location = "group:progress"
+                  name = "progress">
+                  <FileRef
+                     location = "group:progress1.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:progress2.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:progress3.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:progress4.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:progressBar1.psd">
+                  </FileRef>
+                  <FileRef
+                     location = "group:progressBar2.psd">
+                  </FileRef>
+                  <FileRef
+                     location = "group:progressBar3.psd">
+                  </FileRef>
+                  <FileRef
+                     location = "group:progressBar4.psd">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:progressBar.psd">
+               </FileRef>
+               <FileRef
+                  location = "group:reset.png">
+               </FileRef>
+               <FileRef
+                  location = "group:reset.psd">
+               </FileRef>
+               <FileRef
+                  location = "group:ruler.psd">
+               </FileRef>
+               <FileRef
+                  location = "group:rulerVertical.psd">
+               </FileRef>
+               <FileRef
+                  location = "group:save.png">
+               </FileRef>
+               <FileRef
+                  location = "group:save.psd">
+               </FileRef>
+               <Group
+                  location = "group:shapes"
+                  name = "shapes">
+                  <FileRef
+                     location = "group:1.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:2.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:3.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:4.jpg">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:vRuler.png">
+               </FileRef>
+               <FileRef
+                  location = "group:vRuler2.png">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:manifest-33deef7a6f8c7c1344e578fc2c09261f.json">
+            </FileRef>
+            <Group
+               location = "group:sounds"
+               name = "sounds">
+               <FileRef
+                  location = "group:click.wav">
+               </FileRef>
+               <FileRef
+                  location = "group:mouseover.wav">
+               </FileRef>
+               <FileRef
+                  location = "group:snap.wav">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:backblue.gif">
+         </FileRef>
+         <Group
+            location = "group:css"
+            name = "css">
+            <Group
+               location = "group:_notes"
+               name = "_notes">
+               <FileRef
+                  location = "group:dwsync.xml">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:flat.css">
+            </FileRef>
+            <FileRef
+               location = "group:flatbootstrap.css">
+            </FileRef>
+            <FileRef
+               location = "group:flexslider.css">
+            </FileRef>
+            <Group
+               location = "group:font"
+               name = "font">
+               <FileRef
+                  location = "group:fontawesome-webfont.eot">
+               </FileRef>
+               <FileRef
+                  location = "group:fontawesome-webfont.svg">
+               </FileRef>
+               <FileRef
+                  location = "group:fontawesome-webfont.ttf">
+               </FileRef>
+               <FileRef
+                  location = "group:fontawesome-webfont.woff">
+               </FileRef>
+               <FileRef
+                  location = "group:FontAwesome.otf">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:font-awesome.css">
+            </FileRef>
+            <FileRef
+               location = "group:prettyPhoto.css">
+            </FileRef>
+            <FileRef
+               location = "group:skeuo.css">
+            </FileRef>
+            <FileRef
+               location = "group:skeuobootstrap.css">
+            </FileRef>
+            <FileRef
+               location = "group:style.css">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:demo"
+            name = "demo">
+            <Group
+               location = "group:assets"
+               name = "assets">
+               <Group
+                  location = "group:imgs"
+                  name = "imgs">
+                  <FileRef
+                     location = "group:addLoop.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:addLoop.psd">
+                  </FileRef>
+                  <FileRef
+                     location = "group:hRuler.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:hRuler2.png">
+                  </FileRef>
+                  <Group
+                     location = "group:materials"
+                     name = "materials">
+                     <FileRef
+                        location = "group:alumide.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:blackdetailplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:blackregularplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:blacktransparentplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:bluepolishedplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:bluetransparentplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:brass.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:bronzeglossysteel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:bronzemattesteel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:bronzesteel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:browntransparentplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:detailplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:glossysilver.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:gold.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:goldglossysteel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:goldmattesteel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:goldplatedbrass.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:goldsteel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graysteel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graytransparentplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:greentransparentplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:medievalsteel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:metals.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:orangetransparentplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:pinkpolishedplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:plastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:polishedalumide.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:polishedplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:polishedtitanium.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:preciousmetal.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:premiumsilver.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:purplepolishedplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:redpolishedplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:redtransparentplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:regularalumide.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:regularbrass.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:regulargold.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:regularplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:regularsilver.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:regularsteel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:silver.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:steel.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbs.db">
+                     </FileRef>
+                     <FileRef
+                        location = "group:titanium.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:transparentplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:unpolishedtitanium.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:whitedetailplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:whitepolishedplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:whiteregularplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:whitetransparentplastic.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:yellowtransparentplastic.png">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:progress"
+                     name = "progress">
+                     <FileRef
+                        location = "group:progress1.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:progress2.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:progress3.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:progress4.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:progressBar1.psd">
+                     </FileRef>
+                     <FileRef
+                        location = "group:progressBar2.psd">
+                     </FileRef>
+                     <FileRef
+                        location = "group:progressBar3.psd">
+                     </FileRef>
+                     <FileRef
+                        location = "group:progressBar4.psd">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbs.db">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:progressBar.psd">
+                  </FileRef>
+                  <FileRef
+                     location = "group:reset.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:reset.psd">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ruler.psd">
+                  </FileRef>
+                  <FileRef
+                     location = "group:rulerVertical.psd">
+                  </FileRef>
+                  <FileRef
+                     location = "group:save.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:save.psd">
+                  </FileRef>
+                  <Group
+                     location = "group:shapes"
+                     name = "shapes">
+                     <FileRef
+                        location = "group:1.jpg">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2.jpg">
+                     </FileRef>
+                     <FileRef
+                        location = "group:3.jpg">
+                     </FileRef>
+                     <FileRef
+                        location = "group:4.jpg">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbs.db">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:Thumbs.db">
+                  </FileRef>
+                  <FileRef
+                     location = "group:vRuler.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:vRuler2.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:sounds"
+                  name = "sounds">
+                  <FileRef
+                     location = "group:click.wav">
+                  </FileRef>
+                  <FileRef
+                     location = "group:mouseover.wav">
+                  </FileRef>
+                  <FileRef
+                     location = "group:snap.wav">
+                  </FileRef>
+               </Group>
+            </Group>
+            <FileRef
+               location = "group:blank.html">
+            </FileRef>
+            <FileRef
+               location = "group:creator.html">
+            </FileRef>
+            <FileRef
+               location = "group:finalize.html">
+            </FileRef>
+            <Group
+               location = "group:js"
+               name = "js">
+               <FileRef
+                  location = "group:capSpline.js">
+               </FileRef>
+               <Group
+                  location = "group:controllers"
+                  name = "controllers">
+                  <FileRef
+                     location = "group:creatorController.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:finalizeController.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:loopsController.js">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:CurveExtras.js">
+               </FileRef>
+               <FileRef
+                  location = "group:curveMaker.js">
+               </FileRef>
+               <FileRef
+                  location = "group:guiGenerator.js">
+               </FileRef>
+               <FileRef
+                  location = "group:inputView.js">
+               </FileRef>
+               <Group
+                  location = "group:libs"
+                  name = "libs">
+                  <FileRef
+                     location = "group:BinaryLoader.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:dat.gui.min.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Detector.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:filesaver.min.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:stats.min.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:three.min.js">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:materialListener.js">
+               </FileRef>
+               <FileRef
+                  location = "group:materialsLibrary.js">
+               </FileRef>
+               <FileRef
+                  location = "group:sceneCubeWrapper.js">
+               </FileRef>
+               <FileRef
+                  location = "group:sceneWrapper.js">
+               </FileRef>
+               <FileRef
+                  location = "group:screenShot.js">
+               </FileRef>
+               <FileRef
+                  location = "group:textureCube.js">
+               </FileRef>
+               <FileRef
+                  location = "group:tubeMeshBuilder.js">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:loops.html">
+            </FileRef>
+            <Group
+               location = "group:materialMockup"
+               name = "materialMockup">
+               <Group
+                  location = "group:js"
+                  name = "js">
+                  <FileRef
+                     location = "group:capSpline.js">
+                  </FileRef>
+                  <Group
+                     location = "group:controller"
+                     name = "controller">
+                     <FileRef
+                        location = "group:materialController.js">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:CurveExtras.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:curveMaker.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:guiGenerator.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:inputView.js">
+                  </FileRef>
+                  <Group
+                     location = "group:libs"
+                     name = "libs">
+                     <FileRef
+                        location = "group:BinaryLoader.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:dat.gui.min.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Detector.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:filesaver.min.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:stats.min.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:three.min.js">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:materialsLibrary.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sceneCubeWrapper.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sceneWrapper.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:screenShot.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:textureCube.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:tubeMeshBuilder.js">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:materials.html">
+               </FileRef>
+               <Group
+                  location = "group:src"
+                  name = "src">
+                  <Group
+                     location = "group:cameras"
+                     name = "cameras">
+                     <FileRef
+                        location = "group:Camera.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OrthographicCamera.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:PerspectiveCamera.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:core"
+                     name = "core">
+                     <FileRef
+                        location = "group:BufferGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Clock.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:EventDispatcher.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Face3.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Face4.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Geometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Object3D.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Projector.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Raycaster.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:extras"
+                     name = "extras">
+                     <Group
+                        location = "group:animation"
+                        name = "animation">
+                        <FileRef
+                           location = "group:Animation.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:AnimationHandler.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:AnimationMorphTarget.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:KeyFrameAnimation.js">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:cameras"
+                        name = "cameras">
+                        <FileRef
+                           location = "group:CombinedCamera.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:CubeCamera.js">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:core"
+                        name = "core">
+                        <FileRef
+                           location = "group:Curve.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:CurvePath.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Gyroscope.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Path.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Shape.js">
+                        </FileRef>
+                     </Group>
+                     <FileRef
+                        location = "group:FontUtils.js">
+                     </FileRef>
+                     <Group
+                        location = "group:geometries"
+                        name = "geometries">
+                        <FileRef
+                           location = "group:CircleGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ConvexGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:CubeGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:CylinderGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ExtrudeGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:IcosahedronGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:LatheGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:OctahedronGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ParametricGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:PlaneGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:PolyhedronGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:RingGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ShapeGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:SphereGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:TetrahedronGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:TextGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:TorusGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:TorusKnotGeometry.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:TubeGeometry.js">
+                        </FileRef>
+                     </Group>
+                     <FileRef
+                        location = "group:GeometryUtils.js">
+                     </FileRef>
+                     <Group
+                        location = "group:helpers"
+                        name = "helpers">
+                        <FileRef
+                           location = "group:ArrowHelper.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:AxisHelper.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:BoxHelper.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:CameraHelper.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:DirectionalLightHelper.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:GridHelper.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:HemisphereLightHelper.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:PointLightHelper.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:SpotLightHelper.js">
+                        </FileRef>
+                     </Group>
+                     <FileRef
+                        location = "group:ImageUtils.js">
+                     </FileRef>
+                     <Group
+                        location = "group:objects"
+                        name = "objects">
+                        <FileRef
+                           location = "group:ImmediateRenderObject.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:LensFlare.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:MorphBlendMesh.js">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:renderers"
+                        name = "renderers">
+                        <Group
+                           location = "group:plugins"
+                           name = "plugins">
+                           <FileRef
+                              location = "group:DepthPassPlugin.js">
+                           </FileRef>
+                           <FileRef
+                              location = "group:LensFlarePlugin.js">
+                           </FileRef>
+                           <FileRef
+                              location = "group:ShadowMapPlugin.js">
+                           </FileRef>
+                           <FileRef
+                              location = "group:SpritePlugin.js">
+                           </FileRef>
+                        </Group>
+                     </Group>
+                     <FileRef
+                        location = "group:SceneUtils.js">
+                     </FileRef>
+                     <Group
+                        location = "group:shaders"
+                        name = "shaders">
+                        <FileRef
+                           location = "group:ShaderFlares.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ShaderSprite.js">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:lights"
+                     name = "lights">
+                     <FileRef
+                        location = "group:AmbientLight.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:AreaLight.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DirectionalLight.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:HemisphereLight.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Light.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:PointLight.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpotLight.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:loaders"
+                     name = "loaders">
+                     <FileRef
+                        location = "group:GeometryLoader.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ImageLoader.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:JSONLoader.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Loader.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:LoadingMonitor.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:MaterialLoader.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SceneLoader.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TextureLoader.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:materials"
+                     name = "materials">
+                     <FileRef
+                        location = "group:LineBasicMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:LineDashedMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Material.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:MeshBasicMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:MeshDepthMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:MeshFaceMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:MeshLambertMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:MeshNormalMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:MeshPhongMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ParticleBasicMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ParticleCanvasMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ShaderMaterial.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpriteMaterial.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:math"
+                     name = "math">
+                     <FileRef
+                        location = "group:Box2.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Box3.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Color.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Frustum.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Line3.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Math.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Matrix3.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Matrix4.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Plane.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Quaternion.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Ray.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Sphere.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Spline.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Triangle.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:UV.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Vector2.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Vector3.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Vector4.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Vertex.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:objects"
+                     name = "objects">
+                     <FileRef
+                        location = "group:Bone.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Line.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:LOD.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Mesh.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:MorphAnimMesh.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Particle.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ParticleSystem.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Ribbon.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SkinnedMesh.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Sprite.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:renderers"
+                     name = "renderers">
+                     <FileRef
+                        location = "group:CanvasRenderer.js">
+                     </FileRef>
+                     <Group
+                        location = "group:renderables"
+                        name = "renderables">
+                        <FileRef
+                           location = "group:RenderableFace3.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:RenderableFace4.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:RenderableLine.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:RenderableObject.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:RenderableParticle.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:RenderableVertex.js">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:webgl"
+                        name = "webgl">
+                        <FileRef
+                           location = "group:LowLevelRenderer.js">
+                        </FileRef>
+                        <Group
+                           location = "group:objects"
+                           name = "objects">
+                           <FileRef
+                              location = "group:LineRenderer.js">
+                           </FileRef>
+                           <FileRef
+                              location = "group:MeshRenderer.js">
+                           </FileRef>
+                           <FileRef
+                              location = "group:Object3DRenderer.js">
+                           </FileRef>
+                           <FileRef
+                              location = "group:ParticleRenderer.js">
+                           </FileRef>
+                           <FileRef
+                              location = "group:RibbonRenderer.js">
+                           </FileRef>
+                        </Group>
+                        <FileRef
+                           location = "group:ShaderBuilder.js">
+                        </FileRef>
+                     </Group>
+                     <FileRef
+                        location = "group:WebGLRenderer.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:WebGLRenderer2.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:WebGLRenderTarget.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:WebGLRenderTargetCube.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:WebGLShaders.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:scenes"
+                     name = "scenes">
+                     <FileRef
+                        location = "group:Fog.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:FogExp2.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Scene.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:textures"
+                     name = "textures">
+                     <FileRef
+                        location = "group:CompressedTexture.js">
+                     </FileRef>
+                     <Group
+                        location = "group:cube"
+                        name = "cube">
+                        <Group
+                           location = "group:Bridge2"
+                           name = "Bridge2">
+                           <FileRef
+                              location = "group:negx.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:negx.psd">
+                           </FileRef>
+                           <FileRef
+                              location = "group:negy.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:negy.psd">
+                           </FileRef>
+                           <FileRef
+                              location = "group:negz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:negz.psd">
+                           </FileRef>
+                           <FileRef
+                              location = "group:posx.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:posx.psd">
+                           </FileRef>
+                           <FileRef
+                              location = "group:posy.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:posz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:readme.txt">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:Escher"
+                           name = "Escher">
+                           <Group
+                              location = "group:dds"
+                              name = "dds">
+                              <FileRef
+                                 location = "group:nx.dds">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:ny.dds">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:nz.dds">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:px.dds">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:py.dds">
+                              </FileRef>
+                              <FileRef
+                                 location = "group:pz.dds">
+                              </FileRef>
+                           </Group>
+                           <FileRef
+                              location = "group:nx.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:ny.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:nz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:px.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:py.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:pz.jpg">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:Park2"
+                           name = "Park2">
+                           <FileRef
+                              location = "group:negx.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:negy.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:negz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:posx.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:posy.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:posz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:readme.txt">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:Park3Med"
+                           name = "Park3Med">
+                           <FileRef
+                              location = "group:nx.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:ny.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:nz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:px.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:py.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:pz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:readme.txt">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:pisa"
+                           name = "pisa">
+                           <FileRef
+                              location = "group:nx.png">
+                           </FileRef>
+                           <FileRef
+                              location = "group:ny.png">
+                           </FileRef>
+                           <FileRef
+                              location = "group:nz.png">
+                           </FileRef>
+                           <FileRef
+                              location = "group:px.png">
+                           </FileRef>
+                           <FileRef
+                              location = "group:py.png">
+                           </FileRef>
+                           <FileRef
+                              location = "group:pz.png">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:skybox"
+                           name = "skybox">
+                           <FileRef
+                              location = "group:nx.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:ny.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:nz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:px.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:py.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:pz.jpg">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:SwedishRoyalCastle"
+                           name = "SwedishRoyalCastle">
+                           <FileRef
+                              location = "group:nx.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:ny.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:nz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:px.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:py.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:pz.jpg">
+                           </FileRef>
+                           <FileRef
+                              location = "group:readme.txt">
+                           </FileRef>
+                        </Group>
+                     </Group>
+                     <FileRef
+                        location = "group:DataTexture.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Texture.js">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:Three.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:textures"
+                  name = "textures">
+                  <FileRef
+                     location = "group:black.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:blackdetail.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:bronzematte.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:glossymetal.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:glossysilver.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:lighttexture.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:plasticreg.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:polishedplastic.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:roughmetal.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sandy.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:streaky.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Thumbs.db">
+                  </FileRef>
+                  <FileRef
+                     location = "group:unpolishedtitanium.jpg">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:obj"
+               name = "obj">
+               <Group
+                  location = "group:gallardo"
+                  name = "gallardo">
+                  <FileRef
+                     location = "group:GallardoNoUv_bin.bin">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GallardoNoUv_bin.js">
+                  </FileRef>
+                  <Group
+                     location = "group:parts"
+                     name = "parts">
+                     <FileRef
+                        location = "group:gallardo_body_bin.bin">
+                     </FileRef>
+                     <FileRef
+                        location = "group:gallardo_body_bin.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:gallardo_wheel_bin.bin">
+                     </FileRef>
+                     <FileRef
+                        location = "group:gallardo_wheel_bin.js">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:veyron"
+                  name = "veyron">
+                  <Group
+                     location = "group:parts"
+                     name = "parts">
+                     <FileRef
+                        location = "group:veyron_body_bin.bin">
+                     </FileRef>
+                     <FileRef
+                        location = "group:veyron_body_bin.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:veyron_wheel_bin.bin">
+                     </FileRef>
+                     <FileRef
+                        location = "group:veyron_wheel_bin.js">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:VeyronNoUv_bin.bin">
+                  </FileRef>
+                  <FileRef
+                     location = "group:VeyronNoUv_bin.js">
+                  </FileRef>
+               </Group>
+            </Group>
+            <FileRef
+               location = "group:prototype.html">
+            </FileRef>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <Group
+               location = "group:src"
+               name = "src">
+               <Group
+                  location = "group:cameras"
+                  name = "cameras">
+                  <FileRef
+                     location = "group:Camera.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:OrthographicCamera.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:PerspectiveCamera.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:core"
+                  name = "core">
+                  <FileRef
+                     location = "group:BufferGeometry.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Clock.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:EventDispatcher.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Face3.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Face4.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Geometry.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Object3D.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Projector.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Raycaster.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:extras"
+                  name = "extras">
+                  <Group
+                     location = "group:animation"
+                     name = "animation">
+                     <FileRef
+                        location = "group:Animation.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:AnimationHandler.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:AnimationMorphTarget.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:KeyFrameAnimation.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:cameras"
+                     name = "cameras">
+                     <FileRef
+                        location = "group:CombinedCamera.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CubeCamera.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:core"
+                     name = "core">
+                     <FileRef
+                        location = "group:Curve.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CurvePath.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Gyroscope.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Path.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Shape.js">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:FontUtils.js">
+                  </FileRef>
+                  <Group
+                     location = "group:geometries"
+                     name = "geometries">
+                     <FileRef
+                        location = "group:CircleGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ConvexGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CubeGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CylinderGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ExtrudeGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:IcosahedronGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:LatheGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OctahedronGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ParametricGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:PlaneGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:PolyhedronGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:RingGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ShapeGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SphereGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TetrahedronGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TextGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TorusGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TorusKnotGeometry.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TubeGeometry.js">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:GeometryUtils.js">
+                  </FileRef>
+                  <Group
+                     location = "group:helpers"
+                     name = "helpers">
+                     <FileRef
+                        location = "group:ArrowHelper.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:AxisHelper.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:BoxHelper.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CameraHelper.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DirectionalLightHelper.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:GridHelper.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:HemisphereLightHelper.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:PointLightHelper.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpotLightHelper.js">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:ImageUtils.js">
+                  </FileRef>
+                  <Group
+                     location = "group:objects"
+                     name = "objects">
+                     <FileRef
+                        location = "group:ImmediateRenderObject.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:LensFlare.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:MorphBlendMesh.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:renderers"
+                     name = "renderers">
+                     <Group
+                        location = "group:plugins"
+                        name = "plugins">
+                        <FileRef
+                           location = "group:DepthPassPlugin.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:LensFlarePlugin.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ShadowMapPlugin.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:SpritePlugin.js">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <FileRef
+                     location = "group:SceneUtils.js">
+                  </FileRef>
+                  <Group
+                     location = "group:shaders"
+                     name = "shaders">
+                     <FileRef
+                        location = "group:ShaderFlares.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ShaderSprite.js">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:lights"
+                  name = "lights">
+                  <FileRef
+                     location = "group:AmbientLight.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AreaLight.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:DirectionalLight.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:HemisphereLight.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Light.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:PointLight.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpotLight.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:loaders"
+                  name = "loaders">
+                  <FileRef
+                     location = "group:GeometryLoader.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ImageLoader.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:JSONLoader.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Loader.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:LoadingMonitor.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MaterialLoader.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneLoader.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TextureLoader.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:materials"
+                  name = "materials">
+                  <FileRef
+                     location = "group:LineBasicMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:LineDashedMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Material.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MeshBasicMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MeshDepthMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MeshFaceMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MeshLambertMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MeshNormalMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MeshPhongMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ParticleBasicMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ParticleCanvasMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ShaderMaterial.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteMaterial.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:math"
+                  name = "math">
+                  <FileRef
+                     location = "group:Box2.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Box3.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Color.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Frustum.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Line3.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Math.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Matrix3.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Matrix4.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Plane.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Quaternion.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Ray.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Sphere.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Spline.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Triangle.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UV.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Vector2.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Vector3.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Vector4.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Vertex.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:objects"
+                  name = "objects">
+                  <FileRef
+                     location = "group:Bone.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Line.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:LOD.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Mesh.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MorphAnimMesh.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Particle.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ParticleSystem.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Ribbon.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SkinnedMesh.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Sprite.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:renderers"
+                  name = "renderers">
+                  <FileRef
+                     location = "group:CanvasRenderer.js">
+                  </FileRef>
+                  <Group
+                     location = "group:renderables"
+                     name = "renderables">
+                     <FileRef
+                        location = "group:RenderableFace3.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:RenderableFace4.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:RenderableLine.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:RenderableObject.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:RenderableParticle.js">
+                     </FileRef>
+                     <FileRef
+                        location = "group:RenderableVertex.js">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:webgl"
+                     name = "webgl">
+                     <FileRef
+                        location = "group:LowLevelRenderer.js">
+                     </FileRef>
+                     <Group
+                        location = "group:objects"
+                        name = "objects">
+                        <FileRef
+                           location = "group:LineRenderer.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:MeshRenderer.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Object3DRenderer.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ParticleRenderer.js">
+                        </FileRef>
+                        <FileRef
+                           location = "group:RibbonRenderer.js">
+                        </FileRef>
+                     </Group>
+                     <FileRef
+                        location = "group:ShaderBuilder.js">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:WebGLRenderer.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:WebGLRenderer2.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:WebGLRenderTarget.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:WebGLRenderTargetCube.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:WebGLShaders.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:scenes"
+                  name = "scenes">
+                  <FileRef
+                     location = "group:Fog.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FogExp2.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Scene.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:textures"
+                  name = "textures">
+                  <FileRef
+                     location = "group:CompressedTexture.js">
+                  </FileRef>
+                  <Group
+                     location = "group:cube"
+                     name = "cube">
+                     <Group
+                        location = "group:Bridge2"
+                        name = "Bridge2">
+                        <FileRef
+                           location = "group:negx.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:negx.psd">
+                        </FileRef>
+                        <FileRef
+                           location = "group:negy.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:negy.psd">
+                        </FileRef>
+                        <FileRef
+                           location = "group:negz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:negz.psd">
+                        </FileRef>
+                        <FileRef
+                           location = "group:posx.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:posx.psd">
+                        </FileRef>
+                        <FileRef
+                           location = "group:posy.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:posz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:readme.txt">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Escher"
+                        name = "Escher">
+                        <Group
+                           location = "group:dds"
+                           name = "dds">
+                           <FileRef
+                              location = "group:nx.dds">
+                           </FileRef>
+                           <FileRef
+                              location = "group:ny.dds">
+                           </FileRef>
+                           <FileRef
+                              location = "group:nz.dds">
+                           </FileRef>
+                           <FileRef
+                              location = "group:px.dds">
+                           </FileRef>
+                           <FileRef
+                              location = "group:py.dds">
+                           </FileRef>
+                           <FileRef
+                              location = "group:pz.dds">
+                           </FileRef>
+                        </Group>
+                        <FileRef
+                           location = "group:nx.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ny.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:nz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:px.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:py.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:pz.jpg">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Park2"
+                        name = "Park2">
+                        <FileRef
+                           location = "group:negx.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:negy.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:negz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:posx.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:posy.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:posz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:readme.txt">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Park3Med"
+                        name = "Park3Med">
+                        <FileRef
+                           location = "group:nx.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ny.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:nz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:px.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:py.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:pz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:readme.txt">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:pisa"
+                        name = "pisa">
+                        <FileRef
+                           location = "group:nx.png">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ny.png">
+                        </FileRef>
+                        <FileRef
+                           location = "group:nz.png">
+                        </FileRef>
+                        <FileRef
+                           location = "group:px.png">
+                        </FileRef>
+                        <FileRef
+                           location = "group:py.png">
+                        </FileRef>
+                        <FileRef
+                           location = "group:pz.png">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:skybox"
+                        name = "skybox">
+                        <FileRef
+                           location = "group:nx.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ny.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:nz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:px.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:py.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:pz.jpg">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:SwedishRoyalCastle"
+                        name = "SwedishRoyalCastle">
+                        <FileRef
+                           location = "group:nx.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:ny.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:nz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:px.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:py.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:pz.jpg">
+                        </FileRef>
+                        <FileRef
+                           location = "group:readme.txt">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <FileRef
+                     location = "group:DataTexture.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Texture.js">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Three.js">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:textures"
+               name = "textures">
+               <FileRef
+                  location = "group:black.png">
+               </FileRef>
+               <FileRef
+                  location = "group:blackdetail.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:bronzematte.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:glossymetal.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:glossysilver.png">
+               </FileRef>
+               <FileRef
+                  location = "group:lighttexture.png">
+               </FileRef>
+               <FileRef
+                  location = "group:plasticreg.png">
+               </FileRef>
+               <FileRef
+                  location = "group:polishedplastic.png">
+               </FileRef>
+               <FileRef
+                  location = "group:roughmetal.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:sandy.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:streaky.png">
+               </FileRef>
+               <FileRef
+                  location = "group:Thumbs.db">
+               </FileRef>
+               <FileRef
+                  location = "group:unpolishedtitanium.jpg">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:viewer"
+               name = "viewer">
+               <FileRef
+                  location = "group:tubeMeshBuilder.js">
+               </FileRef>
+               <FileRef
+                  location = "group:viewerController.js">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:viewer.html">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:fade.gif">
+         </FileRef>
+         <FileRef
+            location = "group:favicon.ico">
+         </FileRef>
+         <Group
+            location = "group:hts-cache"
+            name = "hts-cache">
+            <FileRef
+               location = "group:doit.log">
+            </FileRef>
+            <FileRef
+               location = "group:new.lst">
+            </FileRef>
+            <FileRef
+               location = "group:new.txt">
+            </FileRef>
+            <FileRef
+               location = "group:new.zip">
+            </FileRef>
+            <FileRef
+               location = "group:old.lst">
+            </FileRef>
+            <FileRef
+               location = "group:old.txt">
+            </FileRef>
+            <FileRef
+               location = "group:old.zip">
+            </FileRef>
+            <FileRef
+               location = "group:readme.txt">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:hts-log.txt">
+         </FileRef>
+         <Group
+            location = "group:img"
+            name = "img">
+            <Group
+               location = "group:assets"
+               name = "assets">
+               <Group
+                  location = "group:3d_examples"
+                  name = "3d_examples">
+                  <FileRef
+                     location = "group:1.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:10.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:11.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:12.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:14.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:2.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:3.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:4.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:5.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:6.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:7.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:8.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:9.jpg">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:arrow2.png">
+               </FileRef>
+               <FileRef
+                  location = "group:arrow3.png">
+               </FileRef>
+               <FileRef
+                  location = "group:arrow4.png">
+               </FileRef>
+               <FileRef
+                  location = "group:arrowlong.png">
+               </FileRef>
+               <FileRef
+                  location = "group:client.png">
+               </FileRef>
+               <FileRef
+                  location = "group:glyphicons-halflings.png">
+               </FileRef>
+               <FileRef
+                  location = "group:header_pic1.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:header_pic1.psd">
+               </FileRef>
+               <FileRef
+                  location = "group:header_pic1_original.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:header_pic1_test.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:header_pic1_test1.psd">
+               </FileRef>
+               <FileRef
+                  location = "group:header_pic1_test2.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:header_pic2.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:header_pic2_original.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:header_pic2_test.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:ipad.png">
+               </FileRef>
+               <FileRef
+                  location = "group:ipad2.png">
+               </FileRef>
+               <FileRef
+                  location = "group:logoflat.png">
+               </FileRef>
+               <FileRef
+                  location = "group:logoskeuo.png">
+               </FileRef>
+               <FileRef
+                  location = "group:monitor.png">
+               </FileRef>
+               <FileRef
+                  location = "group:monitor2.png">
+               </FileRef>
+               <FileRef
+                  location = "group:phone.png">
+               </FileRef>
+               <FileRef
+                  location = "group:phone2.png">
+               </FileRef>
+               <FileRef
+                  location = "group:ring1.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:shapd_logo.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:shapd_logo.png">
+               </FileRef>
+               <FileRef
+                  location = "group:slider.jpg">
+               </FileRef>
+               <Group
+                  location = "group:team"
+                  name = "team">
+                  <FileRef
+                     location = "group:jason_cropped_small.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:jon_cropped_small.jpg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:question.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:works"
+                  name = "works">
+                  <FileRef
+                     location = "group:team.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:works.png">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:background"
+               name = "background">
+               <Group
+                  location = "group:_notes"
+                  name = "_notes">
+                  <FileRef
+                     location = "group:dwsync.xml">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:bg.jpg">
+               </FileRef>
+               <FileRef
+                  location = "group:wood.png">
+               </FileRef>
+               <FileRef
+                  location = "group:wood.png2">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:prettyPhoto"
+               name = "prettyPhoto">
+               <Group
+                  location = "group:dark_rounded"
+                  name = "dark_rounded">
+                  <Group
+                     location = "group:_notes"
+                     name = "_notes">
+                     <FileRef
+                        location = "group:dwsync.xml">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:btnNext.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:btnPrevious.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:contentPattern.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:default_thumbnail.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:loader.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:dark_square"
+                  name = "dark_square">
+                  <Group
+                     location = "group:_notes"
+                     name = "_notes">
+                     <FileRef
+                        location = "group:dwsync.xml">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:btnNext.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:btnPrevious.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:contentPattern.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:default_thumbnail.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:loader.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:default"
+                  name = "default">
+                  <Group
+                     location = "group:_notes"
+                     name = "_notes">
+                     <FileRef
+                        location = "group:dwsync.xml">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:default_thumb.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:loader.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite_next.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite_prev.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite_x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite_y.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:facebook"
+                  name = "facebook">
+                  <Group
+                     location = "group:_notes"
+                     name = "_notes">
+                     <FileRef
+                        location = "group:dwsync.xml">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:btnNext.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:btnPrevious.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:contentPatternBottom.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:contentPatternLeft.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:contentPatternRight.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:contentPatternTop.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:default_thumbnail.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:loader.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:light_rounded"
+                  name = "light_rounded">
+                  <Group
+                     location = "group:_notes"
+                     name = "_notes">
+                     <FileRef
+                        location = "group:dwsync.xml">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:btnNext.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:btnPrevious.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:default_thumbnail.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:loader.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:light_square"
+                  name = "light_square">
+                  <Group
+                     location = "group:_notes"
+                     name = "_notes">
+                     <FileRef
+                        location = "group:dwsync.xml">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:btnNext.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:btnPrevious.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:default_thumbnail.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:loader.gif">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sprite.png">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:js"
+            name = "js">
+            <FileRef
+               location = "group:app.js">
+            </FileRef>
+            <FileRef
+               location = "group:init.js">
+            </FileRef>
+            <FileRef
+               location = "group:jquery.js">
+            </FileRef>
+            <FileRef
+               location = "group:modernizr.js">
+            </FileRef>
+            <FileRef
+               location = "group:submit_email.js">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:php"
+            name = "php">
+            <FileRef
+               location = "group:input_email1.php">
+            </FileRef>
+            <FileRef
+               location = "group:input_email2.php">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:robots.txt">
+         </FileRef>
+         <FileRef
+            location = "group:viewer.html">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Rakefile">
+      </FileRef>
+      <FileRef
+         location = "group:README.rdoc">
+      </FileRef>
+      <FileRef
+         location = "group:shapd.xcworkspace">
+      </FileRef>
+      <Group
+         location = "group:test"
+         name = "test">
+         <Group
+            location = "group:controllers"
+            name = "controllers">
+            <FileRef
+               location = "group:home_controller_test.rb">
+            </FileRef>
+            <FileRef
+               location = "group:shapes_controller_test.rb">
+            </FileRef>
+            <FileRef
+               location = "group:splashes_controller_test.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:fixtures"
+            name = "fixtures">
+            <FileRef
+               location = "group:authentications.yml">
+            </FileRef>
+            <FileRef
+               location = "group:shapes.yml">
+            </FileRef>
+            <FileRef
+               location = "group:splashes.yml">
+            </FileRef>
+            <FileRef
+               location = "group:users.yml">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:functional"
+            name = "functional">
+            <FileRef
+               location = "group:authentications_controller_test.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:helpers"
+            name = "helpers">
+            <FileRef
+               location = "group:home_helper_test.rb">
+            </FileRef>
+            <FileRef
+               location = "group:shapes_helper_test.rb">
+            </FileRef>
+            <FileRef
+               location = "group:splashes_helper_test.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:integration"
+            name = "integration">
+         </Group>
+         <Group
+            location = "group:mailers"
+            name = "mailers">
+            <FileRef
+               location = "group:notifier_test.rb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:models"
+            name = "models">
+            <FileRef
+               location = "group:shape_test.rb">
+            </FileRef>
+            <FileRef
+               location = "group:splash_test.rb">
+            </FileRef>
+            <FileRef
+               location = "group:user_test.rb">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:test_helper.rb">
+         </FileRef>
+         <Group
+            location = "group:unit"
+            name = "unit">
+            <FileRef
+               location = "group:authentication_test.rb">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:tmp"
+         name = "tmp">
+         <Group
+            location = "group:cache"
+            name = "cache">
+            <Group
+               location = "group:assets"
+               name = "assets">
+               <Group
+                  location = "group:development"
+                  name = "development">
+                  <Group
+                     location = "group:sass"
+                     name = "sass">
+                     <Group
+                        location = "group:3be89a4277894f27d916fe78100fed0daff5090b"
+                        name = "3be89a4277894f27d916fe78100fed0daff5090b">
+                        <FileRef
+                           location = "group:home.css.scssc">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:93b7e5e59e00f0a527e15500f0cc41b67b6da0b5"
+                        name = "93b7e5e59e00f0a527e15500f0cc41b67b6da0b5">
+                        <FileRef
+                           location = "group:scaffolds.css.scssc">
+                        </FileRef>
+                        <FileRef
+                           location = "group:shapes.css.scssc">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:c08d10819b1a74418f8905f86b68c1507cafbe57"
+                        name = "c08d10819b1a74418f8905f86b68c1507cafbe57">
+                        <FileRef
+                           location = "group:scaffolds.css.scssc">
+                        </FileRef>
+                        <FileRef
+                           location = "group:splashes.css.scssc">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:sprockets"
+                     name = "sprockets">
+                     <FileRef
+                        location = "group:0387a7c1a4e50d550f1527e63fad713a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:04e6db453f91fd844eb81ab3548f3fa6">
+                     </FileRef>
+                     <FileRef
+                        location = "group:06b4faa3301cffe3be45ac2ae7f92b2a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:092f4a10f146fbd3203da1af7000f744">
+                     </FileRef>
+                     <FileRef
+                        location = "group:0a63c9b78f38f9320a0e20e54e8a97ad">
+                     </FileRef>
+                     <FileRef
+                        location = "group:0b278744c0bf5a205bfc0d8943e1915e">
+                     </FileRef>
+                     <FileRef
+                        location = "group:0c9f5a68e10c76b2d39acc37bb242e22">
+                     </FileRef>
+                     <FileRef
+                        location = "group:0ccf8016d681218612ac4da2da9dab2e">
+                     </FileRef>
+                     <FileRef
+                        location = "group:0ef23b8a9883331068c461f7536bac2b">
+                     </FileRef>
+                     <FileRef
+                        location = "group:10fcfbe6ebae11a40c8eac41939a1b9a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:13db1d2696161c9277a6240dca0ff9d2">
+                     </FileRef>
+                     <FileRef
+                        location = "group:13fe41fee1fe35b49d145bcc06610705">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1638f87db345b13872695759502b54fe">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1702d288685fd626e1994fd06526f69a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:175fd90cd358019ab1e05eea27e92848">
+                     </FileRef>
+                     <FileRef
+                        location = "group:18c45464d3e6b21eb65174fa4f74282a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1a9e10e0aecb94f306d24482dacc5fc5">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1d596877a7c4c3dc9dadcf27128faa74">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1f8798723c37e736b181d1f39ea79f39">
+                     </FileRef>
+                     <FileRef
+                        location = "group:203620c0a2a8415e2822ba694764137d">
+                     </FileRef>
+                     <FileRef
+                        location = "group:203727123c6a34ff0ed26869fcfd259f">
+                     </FileRef>
+                     <FileRef
+                        location = "group:21a6c2d2cc03805aeefe9d179e062db5">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2d23ed5b8abcd4e07798aaf19b6fea03">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2d8e4973abc1dab49cf5893df92c0415">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2f0e18054e6562c046adf813354747b4">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2f5173deea6c795b8fdde723bb4b63af">
+                     </FileRef>
+                     <FileRef
+                        location = "group:3046fd87096a3880bf3ed5620efa95de">
+                     </FileRef>
+                     <FileRef
+                        location = "group:30d0f01364366114b5a636bf25836d9d">
+                     </FileRef>
+                     <FileRef
+                        location = "group:314bac10b53a73f096b09bf81ced2dad">
+                     </FileRef>
+                     <FileRef
+                        location = "group:33017ef61806baf412ff18f249ca0d71">
+                     </FileRef>
+                     <FileRef
+                        location = "group:357970feca3ac29060c1e3861e2c0953">
+                     </FileRef>
+                     <FileRef
+                        location = "group:3665aa30fefe8e40fe1f86cc5f90de35">
+                     </FileRef>
+                     <FileRef
+                        location = "group:416a5f31f6e2517e51e7dd3a65c672fb">
+                     </FileRef>
+                     <FileRef
+                        location = "group:41821e6d0a548f1a11248c0c9b056c75">
+                     </FileRef>
+                     <FileRef
+                        location = "group:4594f89b3c594438799adb26acdaf0d3">
+                     </FileRef>
+                     <FileRef
+                        location = "group:46ef378397125ec6711c3a9782ba5ca2">
+                     </FileRef>
+                     <FileRef
+                        location = "group:4926f9a9574c8f30043a2ff74842e4d2">
+                     </FileRef>
+                     <FileRef
+                        location = "group:4e8dc5e10bc3f1e266f5de3d5df6cf0b">
+                     </FileRef>
+                     <FileRef
+                        location = "group:4ebc0a8f50b258d1e852a25b0e786753">
+                     </FileRef>
+                     <FileRef
+                        location = "group:51d37c111c0b4bae53d881b25801a832">
+                     </FileRef>
+                     <FileRef
+                        location = "group:53f1dfb5e1e71a64752be118c69520a1">
+                     </FileRef>
+                     <FileRef
+                        location = "group:598625d1973beef93258e680a9b57729">
+                     </FileRef>
+                     <FileRef
+                        location = "group:59db2e4736b6f447e62540494d9915f0">
+                     </FileRef>
+                     <FileRef
+                        location = "group:5a88c6cfe5ffa81e0d8bf8a525235e9a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:5ae7fab601683996918936cad21fc244">
+                     </FileRef>
+                     <FileRef
+                        location = "group:5e30a6b911437f1428dc32c3ae182123">
+                     </FileRef>
+                     <FileRef
+                        location = "group:63a8736f9fa97f8bc12ab29a1b066bcf">
+                     </FileRef>
+                     <FileRef
+                        location = "group:67cb1a87866c6d3617bcbd0727a9abae">
+                     </FileRef>
+                     <FileRef
+                        location = "group:6951b7481a606d3b003ab088ec9d4b19">
+                     </FileRef>
+                     <FileRef
+                        location = "group:69d69c93931016e6f430ee3cd01660a1">
+                     </FileRef>
+                     <FileRef
+                        location = "group:6bb987cd3fae680477461b53d33ad407">
+                     </FileRef>
+                     <FileRef
+                        location = "group:6f0b31508d509d32e8422a1ea56fdd42">
+                     </FileRef>
+                     <FileRef
+                        location = "group:7107d1869377e25d44633fe9eca8cc59">
+                     </FileRef>
+                     <FileRef
+                        location = "group:73cf352579b646a784a2780873ee5ea8">
+                     </FileRef>
+                     <FileRef
+                        location = "group:74b4bf45271dd17dd439382095cbf819">
+                     </FileRef>
+                     <FileRef
+                        location = "group:77f685bff8b1b89a7e5269e619c5c028">
+                     </FileRef>
+                     <FileRef
+                        location = "group:7fe72ac1c0db1a7e8e7f59cf25e8a39e">
+                     </FileRef>
+                     <FileRef
+                        location = "group:80979620bd50f25ae87c63373024beb6">
+                     </FileRef>
+                     <FileRef
+                        location = "group:81d7b9095f23e170df5a7263f004c8bc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:861c47055b19e34b76de5206ee5c66a7">
+                     </FileRef>
+                     <FileRef
+                        location = "group:8c3eed662e35f522818f950843fdb793">
+                     </FileRef>
+                     <FileRef
+                        location = "group:90ca8821a1302265a090a50115df7c00">
+                     </FileRef>
+                     <FileRef
+                        location = "group:972920081519b6a07d6bfacdd4af345a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:97ef503c728ab4a5f078f7ee0de32d8d">
+                     </FileRef>
+                     <FileRef
+                        location = "group:9a8c36769afcc7027b4b6ee0c3e77ce5">
+                     </FileRef>
+                     <FileRef
+                        location = "group:9b9f5a8a8d88afaffbe034d770b74fbb">
+                     </FileRef>
+                     <FileRef
+                        location = "group:9bbbc2f7fce0ae5894634714c5920964">
+                     </FileRef>
+                     <FileRef
+                        location = "group:9ce3f3a9bcc72980551f7b0296f2c3b2">
+                     </FileRef>
+                     <FileRef
+                        location = "group:9de47a8de69959dfeea2ec7476dd304b">
+                     </FileRef>
+                     <FileRef
+                        location = "group:9f39e00f857e6fe97a0b7f59f6e68c8d">
+                     </FileRef>
+                     <FileRef
+                        location = "group:9f64e5fb98331ebc18d952310a423d71">
+                     </FileRef>
+                     <FileRef
+                        location = "group:9f98bbb8d598b474005722a1cbdbb4ef">
+                     </FileRef>
+                     <FileRef
+                        location = "group:9fa3bbb00855f6414824e4e33a3866ad">
+                     </FileRef>
+                     <FileRef
+                        location = "group:a031b299c0cad261aa88f248d372b686">
+                     </FileRef>
+                     <FileRef
+                        location = "group:a2356ade15bb874c09b6d65fd38847ec">
+                     </FileRef>
+                     <FileRef
+                        location = "group:a3ec66d3fb0cfeff58237028ca9264cf">
+                     </FileRef>
+                     <FileRef
+                        location = "group:a572cbaa23928940a3ce2b93ad94b1c7">
+                     </FileRef>
+                     <FileRef
+                        location = "group:a846dcefb822a742fbc504727fa52523">
+                     </FileRef>
+                     <FileRef
+                        location = "group:abead5d8653e75db4a12d7ca73766fd3">
+                     </FileRef>
+                     <FileRef
+                        location = "group:b0e29379f241f1d910d80c86a2d1e481">
+                     </FileRef>
+                     <FileRef
+                        location = "group:b2baba9c5250b421ff937fdce3d581af">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ba7e8e2a0e7a840148658b6acd4df738">
+                     </FileRef>
+                     <FileRef
+                        location = "group:bd3936370d0f952ada5774e2230046ed">
+                     </FileRef>
+                     <FileRef
+                        location = "group:bd50fc2d62aeacede6830f5855b97832">
+                     </FileRef>
+                     <FileRef
+                        location = "group:bd5a2f51f870be675552bff1704f3832">
+                     </FileRef>
+                     <FileRef
+                        location = "group:bdda138949953bcd8377733c629220e1">
+                     </FileRef>
+                     <FileRef
+                        location = "group:c1583a53234e018fe51a5541756e84dd">
+                     </FileRef>
+                     <FileRef
+                        location = "group:c521cf85dd9b3f4bb36a88c0b0aac0d1">
+                     </FileRef>
+                     <FileRef
+                        location = "group:c59fa56558cf45d3220c63affbf5f29b">
+                     </FileRef>
+                     <FileRef
+                        location = "group:c65d874367a7fb1b48308532c9b195cb">
+                     </FileRef>
+                     <FileRef
+                        location = "group:c6cd1bda440dd7bd897b52f620bb2103">
+                     </FileRef>
+                     <FileRef
+                        location = "group:cb5ee0e72d032f05ec26442f16eba3ad">
+                     </FileRef>
+                     <FileRef
+                        location = "group:cce34be8f88539766c69b689c3f39cef">
+                     </FileRef>
+                     <FileRef
+                        location = "group:cf61741a58644632db88e5f7da025e0d">
+                     </FileRef>
+                     <FileRef
+                        location = "group:cf688a86f154f07b465a922627eef311">
+                     </FileRef>
+                     <FileRef
+                        location = "group:cf9f33a8cf7a7b1bbbd8a5c1949d8ff7">
+                     </FileRef>
+                     <FileRef
+                        location = "group:cf9f5901c6e7ce115ddcded8b05cdd51">
+                     </FileRef>
+                     <FileRef
+                        location = "group:cffd775d018f68ce5dba1ee0d951a994">
+                     </FileRef>
+                     <FileRef
+                        location = "group:d6a3a38605f3f882b2ce78d614e49745">
+                     </FileRef>
+                     <FileRef
+                        location = "group:d771ace226fc8215a3572e0aa35bb0d6">
+                     </FileRef>
+                     <FileRef
+                        location = "group:e033be41e4772b917c1441d26c492d17">
+                     </FileRef>
+                     <FileRef
+                        location = "group:e459168835a5f27b832ace20874f7c10">
+                     </FileRef>
+                     <FileRef
+                        location = "group:e651113828cf8db2e66642959232976c">
+                     </FileRef>
+                     <FileRef
+                        location = "group:e743214c222488de465c7b68b87ee96a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ee2dce4c01d21d3029ead1247b121300">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ee9a9cdc4b70ed8c226af4aec1d7b68a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ef1be6100d670f46aec514e0f1124123">
+                     </FileRef>
+                     <FileRef
+                        location = "group:f066a1cbb17b5ba7d85940bb921d1921">
+                     </FileRef>
+                     <FileRef
+                        location = "group:f0821a009f876f47bba0e6696a0611d6">
+                     </FileRef>
+                     <FileRef
+                        location = "group:f1663d34d4b6003379113df98f1433a5">
+                     </FileRef>
+                     <FileRef
+                        location = "group:f543c01de8e418f7723215c2996c83fb">
+                     </FileRef>
+                     <FileRef
+                        location = "group:f671aef742505e6cc8e56434f8ae7461">
+                     </FileRef>
+                     <FileRef
+                        location = "group:f6bdaaeec8010782f584edc64292f382">
+                     </FileRef>
+                     <FileRef
+                        location = "group:f73504cf56377b678d3fac20f8da8da0">
+                     </FileRef>
+                     <FileRef
+                        location = "group:f7cbd26ba1d28d48de824f0e94586655">
+                     </FileRef>
+                     <FileRef
+                        location = "group:f8e2672790192c424d2e7638c4f14b2c">
+                     </FileRef>
+                     <FileRef
+                        location = "group:fb3026803c9518d20bbce85b16b4b61a">
+                     </FileRef>
+                     <FileRef
+                        location = "group:fe0ce581468757d0df9cb52e3012ad1e">
+                     </FileRef>
+                     <FileRef
+                        location = "group:fe9120744a9c4ecc9589515b28e9e154">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:pids"
+            name = "pids">
+            <FileRef
+               location = "group:server.pid">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:sessions"
+            name = "sessions">
+         </Group>
+         <Group
+            location = "group:sockets"
+            name = "sockets">
+         </Group>
+      </Group>
+      <Group
+         location = "group:vendor"
+         name = "vendor">
+         <Group
+            location = "group:assets"
+            name = "assets">
+            <Group
+               location = "group:javascripts"
+               name = "javascripts">
+            </Group>
+            <Group
+               location = "group:stylesheets"
+               name = "stylesheets">
+            </Group>
+         </Group>
+      </Group>
+   </Group>
+</Workspace>

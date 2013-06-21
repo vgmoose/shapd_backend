@@ -30,6 +30,7 @@
                 $('#yet_to_reg').fadeOut();
                 $('#confirmed_reg').delay(400).fadeIn();
             }
+
             </script>
 	<script type="text/javascript">
 		
@@ -203,6 +204,9 @@
   <img src="img/background/wood.png" width=10 height=1 class="user_input"></img>
   <%= f.submit 'Sign in', class: "sign_in user_input"  %>
   </div>
+  <script> jQuery('#email').closest('form').on('submit', function(){
+jQuery.post('/signup', jQuery(this).serialize()); return false;
+});  </script>
  <br>
     <!--
   <%= link_to "Forgot your password?", new_password_path('user'), class:"user_input" %>
@@ -406,7 +410,7 @@
                                
                             	<img src="img/assets/arrow4.png" alt="Shapd sign up pointer">
                                 <br>
-                                <%= form_tag("/signup", onsubmit: "showThanks()", method: "post", remote: true) do %>
+                                <%= form_tag("/signup", onsubmit: "showThanks()", remote: true) do %>
   <%= text_field_tag(:email, "", placeholder: "Your Email Address", class: "input-xlarge") %>
   <%= submit_tag("Sign Up")%>
 <% end %>
@@ -420,7 +424,7 @@
             <font size="100px">Thank you</font><br><br>
             <br>
                                
-                            	<input type="button" onmousedown="location.href = '/demo/'" value="Try Demo"></input><br>
+                            	<input type="button" onmousedown="location.href = '/demo/?a=<%= cookies[:email_addr] %>'" value="Try Demo"></input><br>
                                 
                                 <img src='img/assets/arrow2.png' alt="Shapd trial">
                                 
