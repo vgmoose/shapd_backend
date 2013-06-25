@@ -10,7 +10,7 @@ class SplashesController < ApplicationController
         @splash = Splash.new({email: splash_params[:email]})
         
         # If the splash doesn't already exist, save it
-        if !Splash.where(email: splash_params[:email]).exists?
+        if !Splash.where(email: splash_params[:email]).exists? and splash_params[:email]!= ""
             @splash.save
         end
             

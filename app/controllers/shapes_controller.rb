@@ -1,33 +1,18 @@
 class ShapesController < ApplicationController
-  before_action :set_shape, only: [:show, :edit, :update, :destroy]
-
-  # GET /shapes
-  # GET /shapes.json
-  def index
-    @shapes = Shape.all
+  before_action :set_shape, only: [:save, :destroy]
+    
+  def validUser(id)
+      current_user.id == id
   end
 
-  # GET /shapes/1
-  # GET /shapes/1.json
-  def show
-  end
-
-  # GET /shapes/new
-  def new
-    @shape = Shape.new
-  end
-
-  # GET /shapes/1/edit
-  def edit
-  end
-
-  # POST /shapes
-  # POST /shapes.json
   def create
     @shape = Shape.new(shape_params)
 
     respond_to do |format|
-      if @shape.save
+        
+      if !user_signed_in?
+        format.html {render action: "denied"}
+      elsif @shape.save
         format.html { redirect_to @shape, notice: 'Shape was successfully created.' }
         format.json { render action: 'show', status: :created, location: @shape }
       else
@@ -37,22 +22,16 @@ class ShapesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /shapes/1
-  # PATCH/PUT /shapes/1.json
-  def update
+  def save
     respond_to do |format|
       if @shape.update(shape_params)
-        format.html { redirect_to @shape, notice: 'Shape was successfully updated.' }
-        format.json { head :no_content }
+          format.html { render nothing: true, notice: 'Shape was successfully updated.' }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @shape.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /shapes/1
-  # DELETE /shapes/1.json
   def destroy
     @shape.destroy
     respond_to do |format|
@@ -69,6 +48,6 @@ class ShapesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shape_params
-      params.require(:shape).permit(:name, :shape, :user_id, :public)
+      params.permit(:name, :shape, :user_id, :public)
     end
 end

@@ -4,7 +4,7 @@ Shapd::Application.routes.draw do
   resources :users
   resources :shapes
 
-#  devise_for :users
+   # devise_for :users
      devise_for :users, :controllers => {:sessions => 'devise/sessions'}, :skip => [:sessions] do
     get '/login'   => "devise/sessions#new",       :as => :new_user_session
     post '/login'  => 'devise/sessions#create',    :as => :user_session
@@ -13,15 +13,23 @@ Shapd::Application.routes.draw do
     get "/register"   => "devise/registrations#new",   :as => :new_user_registration
   end
     
+    # demo app routes
     get '/demo/' => 'shapd_app#index'
     get '/demo/:id' => 'shapd_app#edit'
     
+    # for the splashes (temporary emails from the splash page)
     post '/signup'  => 'splashes#create'
+    
+    # for creating and updating shapes
+    post '/new' => 'shapes#create'
     post '/save' => 'shapes#save'
+    
+    get '/library' => 'home#library'
 
   resources :authentications
   get "home/index"
   root "home#index"
+    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
