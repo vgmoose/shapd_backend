@@ -37,7 +37,7 @@
         .box
         {
             width:150px;
-            height:150px;
+            height:160px;
             float:left;
 display: table-cell; vertical-align: middle;
             padding: 30px;
@@ -144,20 +144,53 @@ display: table-cell; vertical-align: middle;
 					</div>
 				</div>	
 			</div>
+            <script>
+            function delete_shape(integer)
+            {
+                $('#shape'+integer+'conf').fadeOut(400);
+                $.post("/trash", {id: integer});
+            }
+            function confirm_del(integer)
+            {
+                $('#shape'+integer).fadeOut(400);
+                $('#shape'+integer+"conf").delay(400).fadeIn(400);
+            }
+            function wuss_out(integer)
+            {
+                $('#shape'+integer+'conf').fadeOut(400);
+                $('#shape'+integer).delay(400).fadeIn(400);
+            }
+            
+            </script>
 		</header>
         
         <section class="library" id="library">
-            <div class="container">
-            <div style="float:left"><h1>Your Library</h1></div><div style="float:left;height:1px;width:200px"></div><div style="float:left"><br><a href=/demo/><font size="4">New </font><font size="6"><i class="icon-plus-sign"></i></font></a></div>
+            <div class="container"><br><br>
+            <div style="float:left"><h1>Your Library</h1></div> <div style="float:right;padding:15px;display:inline-block;">
+            
+            <!-- <a href=/demo/><font size="6"><i class="icon-plus-sign"></i></font><span style="display:inline-block;vertical-align:middle">Create New Object </span></a> --></div>
             <br>
            <!-- <iframe src="/demo/" width=100% height=500></iframe> -->
             <div class="container" id="lib">
-                <% shape_counts = Shape.group(:user_id). where(:user_id => current_user.id) %>
+                <%  shape_counts =  Shape.where(:user_id => current_user.id) %>
+
+
                 <% shape_counts.each do |shape| %>
-                    <div class="box"><img src='/shapes/<%= shape.id %>.png' height="150" width="150"> <br><a href="/demo/<%= shape.id %>">Edit</a> - <a href="/demo/<%= shape.id %>">Clone</a> - <a href="/demo/<%= shape.id %>">Trash</a>
+                
+                    <div class="box" id="shape<%= shape.id %>">
+                    <img src='/shapes/<%=shape.id %>.png' height="150" width="150"> 
+                    <!--<iframe id="shape<%= shape.id %>" style="height:140px;width:150px;" src="/demo/<%= shape.id %>?meta=1"></iframe> -->
+                    
+                     
+                        <br><a href="/demo/<%= shape.id %>">Edit</a> - <a href="/demo/<%= shape.id %>">Clone</a> - <a href="javascript:confirm_del(<%= shape.id %>)">Trash</a><br>"<%= shape.name %>"
+                    </div>  
+                    
+                    
+                    <div style="display:none;" class="box" id="shape<%= shape.id %>conf"><br><br><br>
+                    Are you sure?<br><a href="javascript:delete_shape(<%= shape.id %>)">Yes</a> - <a href="javascript:wuss_out(<%= shape.id %>)">No</a>
                     </div>
                 <% end %>
-
+            <div class="box"><a href="/demo/"><br><br><h2><i class="icon-plus-sign"></i></h2><span style="display:inline-block">Add New Shape</span></a></div>
            
             </div>
             </div>

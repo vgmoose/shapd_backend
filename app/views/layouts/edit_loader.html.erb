@@ -3,7 +3,18 @@
 <% if @shape != nil %>
 var savedShape = "<%= @shape[:shape] %>";
 var shapeID = "<%= @shape[:id] %>";
+var authToken = "<%= form_authenticity_token %>";
+
+<%
+if (params[:meta] == "1") %>
+    var screenShot = true;
 <% end %>
+<% end %>
+
+function createNewUser()
+{
+
+}
 
 function weLoveRicky()
 {

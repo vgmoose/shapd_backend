@@ -1,17 +1,17 @@
 Shapd::Application.routes.draw do
   resources :splashes
 
-  resources :users
   resources :shapes
 
    # devise_for :users
-     devise_for :users, :controllers => {:sessions => 'devise/sessions'}, :skip => [:sessions] do
-    get '/login'   => "devise/sessions#new",       :as => :new_user_session
-    post '/login'  => 'devise/sessions#create',    :as => :user_session
-    get '/logout'  => 'devise/sessions#destroy',   :as => :destroy_user_session
-
-    get "/register"   => "devise/registrations#new",   :as => :new_user_registration
-  end
+    devise_for :users,
+    :controllers => { :sessions => 'devise/sessions'},
+    :skip => [:sessions] do
+        get '/login' => "devise/sessions#new", :as => :new_user_session
+        post '/login' => 'devise/sessions#create', :as => :user_session
+        get '/logout' => 'devise/sessions#destroy', :as => :destroy_user_session
+        get '/register' => 'devise/registrations#new', :as => :new_user_registration
+    end
     
     # demo app routes
     get '/demo/' => 'shapd_app#index'
@@ -25,6 +25,11 @@ Shapd::Application.routes.draw do
     post '/save' => 'shapes#save'
     
     get '/library' => 'home#library'
+    get '/gallery' => 'home#gallery'
+    
+    post '/meta' => 'shapes#screenshot'
+    post '/trash' => 'shapes#destroy'
+
 
   resources :authentications
   get "home/index"

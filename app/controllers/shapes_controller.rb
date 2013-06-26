@@ -1,8 +1,8 @@
 class ShapesController < ApplicationController
-  before_action :set_shape, only: [:save, :destroy]
+    before_action :set_shape, only: [:save, :destroy, :screenshot]
     
-  def validUser(id)
-      current_user.id == id
+  def validUser?
+      current_user.id == @shape['user_id']
   end
 
   def create
@@ -31,12 +31,28 @@ class ShapesController < ApplicationController
       end
     end
   end
+    
+  def screenshot
+      
+      shape_screen = Base64.decode64(shape_params[:meta].gsub('data:image/png;base64,', ''))
+      
+      if validUser?
+          File.open(Rails.root.join('public', 'shapes', shape_params[:id]+'.png'), 'wb+') do |file|
+              file.write(shape_screen)
+          end
+      end
+          
+      respond_to do |format|
+          format.html { render nothing: true}
+      end
+  end
 
   def destroy
-    @shape.destroy
+      if validUser?
+        @shape.destroy
+      end
     respond_to do |format|
-      format.html { redirect_to shapes_url }
-      format.json { head :no_content }
+        format.html { render nothing: true }
     end
   end
 
@@ -48,6 +64,6 @@ class ShapesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shape_params
-      params.permit(:name, :shape, :user_id, :public)
+        params.permit(:name, :shape, :user_id, :meta, :authenticity_token, :id, :public)
     end
 end
