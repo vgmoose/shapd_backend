@@ -1,0 +1,154 @@
+<head>
+
+<style>
+.swoop
+{
+    z-index: 100000;
+    background-color:#2fa1d6;
+    color: white;
+    font-family: helvetica, arial;
+    border-radius: 20px;
+    position: fixed;
+    top: -600;
+    left: 50%;
+     margin-left: -300px;
+    margin-top: -20px;
+    
+    <% if user_signed_in? %>
+    height:100px;
+    <% else %>
+    height:600px;
+    <% end %>
+    width:600px;
+}
+    div
+    {
+        font-family: helvetica, arial;
+    }
+    
+    #idSavedShapeLibrary
+    {
+        <% !if user_signed_in? %>
+        <% else %>
+        <% end %>
+        height: 300px;
+        overflow: auto;
+        border-radius: 10px;
+        background-color: white;
+    }
+    
+    #public
+    {
+        height:400px;
+    }
+    #blackout
+    {
+        background-color: black;
+        opacity: .7;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left:0;
+        position:fixed;
+        z-index:99999;
+        display:none;
+    }
+    
+</style>
+<div id='register' class='swoop'></div>
+<div id='publish' class='swoop'></div>
+<script>
+    
+    
+<% if user_signed_in? %>
+    userID = "<%= current_user.id %>";
+    var shapeLib =  "<%  shape_counts =  Shape.where(:user_id => current_user.id) %><% shape_counts.each do |shape| %><a href=\"javascript:loadFromLib('<%= shape.shape %>')\"><img class='galleryImg' src='/shapes/<%=shape.id %>.png' height='100' width='100'></a><% end %>"
+<% end %>
+    
+<% if @shape != nil %>
+var savedShape = "<%= @shape[:shape] %>";
+var shapeID = "<%= @shape[:id] %>";
+
+<% end %>
+
+var authToken = "<%= form_authenticity_token %>";
+<%
+if (params[:meta] == "1") %>
+    var screenShot = true;
+
+<% end %>
+    <% if params[:action] == 'index' %>
+        var newuser = true;
+    <% end %>
+var freeze = false;
+    
+function hideTheBeast()
+{
+    $("#register").animate({top:'-600px'}, 300);
+    $("#blackout").fadeOut(500);
+    freeze = false;
+}
+
+    
+function hideAndNext()
+{
+    setTimeout("$('#idSaveButton').click()", 500);
+    hideTheBeast()
+}
+    
+function submitReg()
+{
+    $.post("/users", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value, password_confirmation:document.getElementById('user_password_confirmation').value}, authenticity_token: authToken, utf8: '✓'}, function(data){alert(data);});
+}
+
+
+function createNewUser()
+{
+    var black = document.createElement("div");
+
+    
+    <% if !user_signed_in? %>
+    black.setAttribute("id", "blackout");
+    document.body.appendChild(black);
+        register.innerHTML = "<br><br><h1>Not so fast!</h1><br><br>We need to know a little bit more about you to before we save.<br><br><br>Email address<br><input type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' type='password'></input><br><br><a href='javascript:submitReg()'>SIGN ME UP</a>";
+        freeze = true;
+        newuser =  false;
+    $("#register").animate({top:'0'}, 300);
+    $("#blackout").fadeIn(500);
+
+
+    //    $("#register").clearQueue().fadeIn(500);
+    
+    <% else %>
+        newuser = false;
+        register.innerHTML = "<br><h1>Saving creation...</h1></input>";
+    $("#register").animate({top:'0'}, 300);
+    setTimeout("$('#idSaveButton').click()", 1);
+
+
+    $.post("/new", {user_id: userID, authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape()});
+    
+    <% end %>
+    
+
+}
+ 
+<% if (params[:meta] == "1") %>
+var screenShot = true;
+<% end %>
+    
+function saveShape()
+{
+    if (typeof shapeID !== 'undefined')
+    {
+        register.innerHTML = "<br><h1>Saving creation...</h1></input>";
+        $("#register").animate({top:'0'}, 300);
+        $.post("/save", {id: shapeID, authenticity_token: "<%= form_authenticity_token %>", shape: hashend});
+        loadScreenshotStage();
+    }
+}
+
+</script>
+</head>
+
+<%= yield %>

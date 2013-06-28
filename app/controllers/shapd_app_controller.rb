@@ -11,14 +11,18 @@ class ShapdAppController < ApplicationController
         # check if they have an account
         if user_signed_in?
             if (params[:a] == nil)
-                respond_to(:html)
+                respond_to do |format|
+                    format.html {render layout: "create_loader"}
+                end
             else
                 redirect_to '/demo/'
             end
         
         # check if the decoded email from the URL is in the database
         elsif Splash.where(email: decrypted_email).exists? and decrypted_email != ""
-            respond_to(:html)
+            respond_to do |format|
+                format.html {render layout: "create_loader"}
+            end
             
         # if not, perhaps their email cookie will be in the database
         elsif cookies['email_addr'] != params[:a] and !cookies['email_addr'].nil?
@@ -42,7 +46,7 @@ class ShapdAppController < ApplicationController
         if !current_user.nil? and @shape[:user_id] == current_user[:id]
             respond_to do |format|
                 # deny access if those conditions aren't met
-                format.html {render action: "edit", layout: "edit_loader"}
+                format.html {render action: "edit", layout: "create_loader"}
             end
         else
             respond_to do |format|

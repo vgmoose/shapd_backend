@@ -29,6 +29,8 @@ Shapd::Application.routes.draw do
     
     post '/meta' => 'shapes#screenshot'
     post '/trash' => 'shapes#destroy'
+    
+    post '/pricing' => 'shapes#price'
 
 
   resources :authentications
