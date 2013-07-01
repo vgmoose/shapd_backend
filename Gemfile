@@ -1,15 +1,22 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0.rc2'
+gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
+# Use mysql2 as the database for Active Record
 gem 'mysql2'
+
+# omniauth stuffs
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+gem 'activerecord-session_store'
 
 gem 'protected_attributes'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0.rc2'
+gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -48,7 +55,6 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise', '~> 3.0.0.rc'
-gem 'nifty-generators'
 
 gem "mocha", group: :test
 gem "pry"

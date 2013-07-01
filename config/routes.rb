@@ -5,7 +5,7 @@ Shapd::Application.routes.draw do
 
    # devise_for :users
     devise_for :users,
-    :controllers => { :sessions => 'devise/sessions'},
+    :controllers => { :sessions => 'devise/sessions', :omniauth_callbacks => "users/omniauth_callbacks" },
     :skip => [:sessions] do
         get '/login' => "devise/sessions#new", :as => :new_user_session
         post '/login' => 'devise/sessions#create', :as => :user_session
@@ -31,6 +31,8 @@ Shapd::Application.routes.draw do
     post '/trash' => 'shapes#destroy'
     
     post '/pricing' => 'shapes#price'
+    
+
 
 
   resources :authentications

@@ -151,6 +151,9 @@
 
 </head>
 <body>
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+<%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+
 
 	<!-- ============================================= -->
 	<!-- LAYOUT TYPE : Add boxed class for Boxed style -->

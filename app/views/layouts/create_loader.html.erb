@@ -1,6 +1,49 @@
 <head>
 
 <style>
+    input
+    {
+        border:1px solid #ccc;
+        padding:4px 4px;
+        line-height:20px;
+        min-height:20px;
+        font-size:13px;
+        
+        width:200px;
+        
+        border-radius:3px;
+        -moz-border-radius:3px;
+        -webkit-border-radius:3px;
+        
+        transition:border linear .25s,
+        box-shadow linear .25s;
+        -webkit-transition:border linear .25s,
+        box-shadow linear .25s;
+        -moz-transition:border linear .25s,
+        box-shadow linear .25s;
+        
+        box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
+        -webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
+        -moz-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
+        
+        background-color:#F9F9F9;
+    }
+    
+    input:focus
+    {
+        border-color:#09c;
+        border-color:rgba(0,135,200,0.75);
+        
+        box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
+        0 0 8px rgba(81,169,236,0.66);
+        -webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
+        0 0 8px rgba(81,169,236,0.66);
+        -moz-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
+        0 0 8px rgba(81,169,236,0.66);
+        
+        outline:none;
+    }
+    
 .swoop
 {
     z-index: 100000;
@@ -54,6 +97,26 @@
         display:none;
     }
     
+    button
+    {
+            width:150px;
+            height:35px;
+            font-size:20px;
+            background:#3e9ad2;
+        color: white;
+        border: #000;
+        -webkit-box-shadow:0 0 4px #000;/*safari and Chrome*/
+        -moz-box-shadow:0 0 4px #000; /*Mozilla*/
+        -o-box-shadow:0 0 4px #000; /*Opera*/
+        -ms-box-shadow:0 0 4px #000; /*Ms IE*/
+        box-shadow:0 0 4px #000; /*W3C*/
+        -webkit-border-radius:15px;/*safari and Chrome*/
+        -moz-border-radius:15px; /*Mozilla*/
+        -o-box-border-radius:15px; /*Opera*/
+        -ms-box-border-radius:15px; /*Ms IE*/
+        border-radius:15px; /*W3C*/
+    }
+    
 </style>
 <div id='register' class='swoop'></div>
 <div id='publish' class='swoop'></div>
@@ -62,7 +125,7 @@
     
 <% if user_signed_in? %>
     userID = "<%= current_user.id %>";
-    var shapeLib =  "<%  shape_counts =  Shape.where(:user_id => current_user.id) %><% shape_counts.each do |shape| %><a href=\"javascript:loadFromLib('<%= shape.shape %>')\"><img class='galleryImg' src='/shapes/<%=shape.id %>.png' height='100' width='100'></a><% end %>"
+    var shapeLib =  "<%  shape_counts =  Shape.where(:user_id => current_user.id) %><% shape_counts.each do |shape| %><a href=\"javascript:window.shapeID='<%=shape.id%>';loadFromLib('<%= shape.shape %>')\"><img class='galleryImg' src='/shapes/<%=shape.id %>.png' height='100' width='100'></a><% end %>"
 <% end %>
     
 <% if @shape != nil %>
@@ -110,7 +173,7 @@ function createNewUser()
     <% if !user_signed_in? %>
     black.setAttribute("id", "blackout");
     document.body.appendChild(black);
-        register.innerHTML = "<br><br><h1>Not so fast!</h1><br><br>We need to know a little bit more about you to before we save.<br><br><br>Email address<br><input type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' type='password'></input><br><br><a href='javascript:submitReg()'>SIGN ME UP</a>";
+        register.innerHTML = "<br><br><h1>Not so fast!</h1><br><br>We need to know a little bit more about you to before we save.<br><br><br>Email address<br><input type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><br><button onclick='hideTheBeast();newuser=true;'>No thanks</button>";
         freeze = true;
         newuser =  false;
     $("#register").animate({top:'0'}, 300);
