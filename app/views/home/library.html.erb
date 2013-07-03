@@ -34,6 +34,9 @@
         {
             display: table;
         }
+                    
+
+
         .box
         {
             width:150px;
@@ -160,16 +163,24 @@ display: table-cell; vertical-align: middle;
                 $('#shape'+integer+'conf').fadeOut(400);
                 $('#shape'+integer).delay(400).fadeIn(400);
             }
+            function rename(id)
+            {
+                $('#title'+id).fadeOut(400);
+                $('.swoop').animate({top:0}, 300);
+                //$('#title'+id+'box').delay(400).fadeIn(400);
+            }
+
             
             </script>
 		</header>
-        
+        <div id='renameme' class='swoop'></div>
+
         <section class="library" id="library">
             <div class="container"><br><br>
             <div style="float:left"><h1>Your Library</h1></div> <div style="float:right;padding:15px;display:inline-block;">
             
             <!-- <a href=/demo/><font size="6"><i class="icon-plus-sign"></i></font><span style="display:inline-block;vertical-align:middle">Create New Object </span></a> --></div>
-            <br>
+            <br>            
            <!-- <iframe src="/demo/" width=100% height=500></iframe> -->
             <div class="container" id="lib">
                 <%  shape_counts =  Shape.where(:user_id => current_user.id) %>
@@ -181,14 +192,20 @@ display: table-cell; vertical-align: middle;
                     <img src='/shapes/<%=shape.id %>.png' height="150" width="150"> 
                     <!--<iframe id="shape<%= shape.id %>" style="height:140px;width:150px;" src="/demo/<%= shape.id %>?meta=1"></iframe> -->
                     
-                     
+
                         <br><a href="/demo/<%= shape.id %>">Edit</a> - <a href="/demo/<%= shape.id %>">Share</a> - <a href="javascript:confirm_del(<%= shape.id %>)">Trash</a><br>
-                        
+                        <div id="title<%= shape.id %>">
+                        <a style="text-decoration: none" href="javascript:rename(<%= shape.id %>)">
                         <% if !shape.name.nil? %>
                             <%= shape.name %>
                         <% else %>
                             <font size=1>Untitled <%= shape.id %></font>
                         <% end %>
+                        </a>
+                        </div>
+                        <div id="title<%= shape.id %>box" style="display:none">
+                            <input type="text" placeholder="<%= shape.name %>"></input>
+                        </div>
                     </div>  
                     
                     

@@ -9,4 +9,16 @@ class Notifier < ActionMailer::Base
             format.html{render text: @account+" signed up for email notifications"}
         end.deliver
     end
+    
+    def custom(recipient, title, header, message)
+        encrypt_email = Base64.encode64(recipient)
+        
+        @content = message.gsub("[DEMO APP LINK]", "http://shapd.co/demo/?a="+encrypt_email)
+        @subtitle = header.gsub("[DEMO APP LINK]", "http://shapd.co/demo/?a="+encrypt_email)
+        
+        title = title.gsub("[DEMO APP LINK]", "http://shapd.co/demo/?a="+encrypt_email)
+        
+        mail(to: recipient, subject: title).deliver
+        logger.info("sent "+title+" mail to " + recipient)
+    end
 end

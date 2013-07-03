@@ -52,6 +52,28 @@ class ShapesController < ApplicationController
       end
   end
     
+  def shapeways_price
+      
+      auth = request.env["omniauth.auth"]
+            
+      @response = auth
+      
+      client = Reshape::Client.new({
+                                   consumer_token: '4f8ab865d305cc3c72adc687d8c75b2104a6e48d',
+                                   consumer_secret: '9fac7670d859df32e05fe9cc9c7cb85e02de6c64',
+                                   oauth_token: auth.credentials.token,
+                                   oauth_secret: auth.credentials.secret
+                                   })
+      
+      materials = client.materials
+      
+      respond_to do |format|
+          format.html {render action: 'price', layout: false}
+      end
+      
+      # Try to find authentication first  end
+  end
+    
   def price
       require 'net/http'
       require 'net/https'

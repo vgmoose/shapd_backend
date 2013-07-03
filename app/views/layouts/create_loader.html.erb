@@ -29,22 +29,8 @@
         background-color:#F9F9F9;
     }
     
-    input:focus
-    {
-        border-color:#09c;
-        border-color:rgba(0,135,200,0.75);
-        
-        box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
-        0 0 8px rgba(81,169,236,0.66);
-        -webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
-        0 0 8px rgba(81,169,236,0.66);
-        -moz-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
-        0 0 8px rgba(81,169,236,0.66);
-        
-        outline:none;
-    }
-    
-.swoop
+       
+.swoopr
 {
     z-index: 100000;
     background-color:#2fa1d6;
@@ -84,7 +70,7 @@
     {
         height:400px;
     }
-    #blackout
+    #blackout2
     {
         background-color: black;
         opacity: .7;
@@ -118,8 +104,8 @@
     }
     
 </style>
-<div id='register' class='swoop'></div>
-<div id='publish' class='swoop'></div>
+<div id='register' class='swoopr'></div>
+<div id='publish' class='swoopr'></div>
 <script>
     
     
@@ -148,7 +134,7 @@ var freeze = false;
 function hideTheBeast()
 {
     $("#register").animate({top:'-600px'}, 300);
-    $("#blackout").fadeOut(500);
+    $("#blackout2").fadeOut(500);
     freeze = false;
 }
 
@@ -171,13 +157,13 @@ function createNewUser()
 
     
     <% if !user_signed_in? %>
-    black.setAttribute("id", "blackout");
+    black.setAttribute("id", "blackout2");
     document.body.appendChild(black);
         register.innerHTML = "<br><br><h1>Not so fast!</h1><br><br>We need to know a little bit more about you to before we save.<br><br><br>Email address<br><input type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><br><button onclick='hideTheBeast();newuser=true;'>No thanks</button>";
         freeze = true;
         newuser =  false;
     $("#register").animate({top:'0'}, 300);
-    $("#blackout").fadeIn(500);
+    $("#blackout2").fadeIn(500);
 
 
     //    $("#register").clearQueue().fadeIn(500);

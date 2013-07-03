@@ -10,6 +10,9 @@ gem 'mysql2'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-shapeways'
+
+gem 'reshape'
 
 gem 'activerecord-session_store'
 

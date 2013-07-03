@@ -3,6 +3,12 @@ class SplashesController < ApplicationController
     def index
         @splashes = Splash.all
     end
+    
+    def compose
+        respond_to do |format|
+            format.html {render 'notifier/compose'}
+        end
+    end
 
     def create
         
@@ -26,11 +32,33 @@ class SplashesController < ApplicationController
         end
         
     end
+    
+    def send_test
+        Notifier.custom("rickyayoub@gmail.com", splash_params[:title], splash_params[:header], splash_params[:message])
+        Notifier.custom("oshaughnessy.jonathan@gmail.com", splash_params[:title], splash_params[:header], splash_params[:message])
+
+        respond_to do |format|
+            format.js {render :nothing => true}
+        end
+    end
+    
+    def send_all
+        
+        Splash.all.each do |splash|
+            Notifier.custom(splash.email, splash_params[:title], splash_params[:header], splash_params[:message])
+        end
+        
+        respond_to do |format|
+            format.js {render :nothing => true}
+        end
+        
+        
+    end
         
     private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def splash_params
-        params.permit(:email, :utf8, :authenticity_token, :commit)
+        params.permit(:email, :utf8, :authenticity_token, :commit, :message, :title, :header)
     end
 end

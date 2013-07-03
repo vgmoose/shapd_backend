@@ -31,6 +31,12 @@ Shapd::Application.routes.draw do
     post '/trash' => 'shapes#destroy'
     
     post '/pricing' => 'shapes#price'
+    get '/pricing2' => 'shapes#shapeways_price'
+    
+    post '/sendtest' => 'splashes#send_test'
+    post '/sendall' => 'splashes#send_all'
+    
+    get '/compose' => 'splashes#compose'
     
 
 

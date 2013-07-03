@@ -77,13 +77,20 @@
             {
                 z-index: 990;
                 position: absolute;
-                background-color: #777777;
                 top:55px;
                 color: #ffffff;
                 width: 415px;
-                height:130px;
+                height: 305px;
                 display: none;
                 text-align: right;
+            }
+            
+            #popright
+            {
+                width: 285px;
+                height: 305px;
+                float: right;
+                background-color: #777777;
             }
             
             .user_input
@@ -151,8 +158,6 @@
 
 </head>
 <body>
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-<%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
 
 
 	<!-- ============================================= -->
@@ -197,15 +202,20 @@
 								<!-- Start Here -->
 								<li><a href="#features">Features</a></li>
 								<li><a href="#works">Works</a></li>
-                                <div id='popup' >
+                                <div id='popup' ><div id='popright'>
  <%= form_for("user", :url => user_session_path, :class => "nosub") do |f| %>
-  <br><div style="padding-left:29px">
+<div style="text-align:center"><br>
+<%= link_to image_tag("/img/FacebookTrim.png", width: '229', style: 'margin-bottom: 10px'), user_omniauth_authorize_path(:facebook) %><br>
+<%= link_to image_tag("/img/GoogleTrim.png", width: '229'), user_omniauth_authorize_path(:google_oauth2) %>
+ </div><br>
+  <div style="padding-left:29px">
   <%= f.text_field :email, class: "user_input", placeholder: "Email address"  %>
    <img src="img/background/wood.png" width=10 height=1 class="user_input"></img>
   
   <%= f.password_field :password, class: "user_input", placeholder: "Password"   %>
   <img src="img/background/wood.png" width=10 height=1 class="user_input"></img>
   <%= f.submit 'Sign in', class: "sign_in user_input"  %>
+  </div>
   </div>
   <script> jQuery('#email').closest('form').on('submit', function(){
 jQuery.post('/signup', jQuery(this).serialize()); return false;
