@@ -11,4 +11,8 @@ Spree.config do |config|
   # config.site_name = "Spree Demo Site"
 end
 
-Spree.user_class = "Spree::LegacyUser"
+Spree.user_class = "User"
+
+  Rails.application.config.to_prepare do
+    require_dependency 'spree/authentication_helpers'
+  end

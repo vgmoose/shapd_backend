@@ -12,7 +12,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'spree', github: 'spree/spree', branch: 'rails4'
-gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'rails4'
 gem 'ransack', github: 'ernie/ransack', branch: 'rails-4'
 gem 'awesome_nested_set', github: 'huoxito/awesome_nested_set', branch: 'rails4'
 
