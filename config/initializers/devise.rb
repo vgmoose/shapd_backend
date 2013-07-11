@@ -9,17 +9,6 @@ Devise.setup do |config|
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
-   require "omniauth-facebook"
-   config.omniauth :facebook, "611485622203669", "d2d424259a74471b8ae332f3f1c0119e"
-    
-    #require "omniauth-twitter"
-    #config.omniauth :twitter, "usuUahHoN7lf2wC5ogMnQ", "nP4t9xqLWvivqIINbeS8VleB9ZpjgLcIRybYlJF0Q"
-    
-    require "omniauth-google-oauth2"
-    config.omniauth :google_oauth2, "1047847377561.apps.googleusercontent.com", "RpLhVBdVy_ShaNyWnIsX1tGO", { access_type: "offline", approval_prompt: "" }
-
-
-    
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
@@ -97,7 +86,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "f58d489364e1c143785dca2c56ea109853049e23a035caf6b15aed0e906bc2de948f3a95f9f67eb33a813e5411e276ab72d13d131358f758bcdc084705e1b739"
+  # config.pepper = "a85a2a3832316a13adac6211a447cff3083a77b927469c5e61b9511cdc1c59ccf28f03f76882c104ab930a3eafbeaa4b28dde07a27aa053cb1b3c0b4e9c3c65e"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -226,6 +215,10 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+    
+    config.warden do |manager|
+        manager.failure_app = CustomFailure
+    end
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

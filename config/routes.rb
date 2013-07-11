@@ -1,5 +1,11 @@
 Shapd::Application.routes.draw do
-  resources :splashes
+
+  # This line mounts Spree's routes at the root of your application.
+  # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
+  # If you would like to change where this engine is mounted, simply change the :at option to something different.
+  #
+  # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
+          resources :splashes
 
   resources :shapes
 
@@ -7,7 +13,6 @@ Shapd::Application.routes.draw do
     devise_for :users,
     :controllers => { :sessions => 'devise/sessions', :omniauth_callbacks => "users/omniauth_callbacks" },
     :skip => [:sessions] do
-        get '/login' => "devise/sessions#new", :as => :new_user_session
         post '/login' => 'devise/sessions#create', :as => :user_session
         get '/logout' => 'devise/sessions#destroy', :as => :destroy_user_session
         get '/register' => 'devise/registrations#new', :as => :new_user_registration
@@ -31,12 +36,13 @@ Shapd::Application.routes.draw do
     post '/trash' => 'shapes#destroy'
     
     post '/pricing' => 'shapes#price'
-    get '/pricing2' => 'shapes#shapeways_price'
+    post '/pricing2' => 'shapes#shapeways_price'
     
     post '/sendtest' => 'splashes#send_test'
     post '/sendall' => 'splashes#send_all'
     
     get '/compose' => 'splashes#compose'
+    get '/response' => 'shapd_app#resp'
     
 
 

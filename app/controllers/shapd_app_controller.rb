@@ -37,6 +37,12 @@ class ShapdAppController < ApplicationController
         
     end
     
+    def resp
+        respond_to do |format|
+            format.html {render action: "response"}
+        end
+    end
+    
     def edit
         
         # find the shape id from URL

@@ -6,8 +6,13 @@ class ShapesController < ApplicationController
   end
 
   def create
-      logger.info(shape_params)
-    @shape = Shape.new(shape_params)
+      
+      apply_this = shape_params.merge({user_id: current_user.id.to_s})
+
+    @shape = Shape.new(apply_this)
+      
+      logger.info(apply_this)
+
 
     respond_to do |format|
         
@@ -54,22 +59,39 @@ class ShapesController < ApplicationController
     
   def shapeways_price
       
-      auth = request.env["omniauth.auth"]
-            
-      @response = auth
+      require 'oauth'
+      require 'net/http'
       
-      client = Reshape::Client.new({
-                                   consumer_token: '4f8ab865d305cc3c72adc687d8c75b2104a6e48d',
-                                   consumer_secret: '9fac7670d859df32e05fe9cc9c7cb85e02de6c64',
-                                   oauth_token: auth.credentials.token,
-                                   oauth_secret: auth.credentials.secret
-                                   })
       
-      materials = client.materials
+      consumer = "4f8ab865d305cc3c72adc687d8c75b2104a6e48d"
+      consumer_secret = "9fac7670d859df32e05fe9cc9c7cb85e02de6c64"
+      
+      @consumer=OAuth::Consumer.new( consumer, consumer_secret, {
+                                    site: "http://api.shapeways.com/", request_token_path: "/oauth1/request_token/v1", :http_method        => :post,
+                                    :access_token_path  => "/oauth1/access_token/v1"
+                                    })
+      
+      
+      @toSend = shape_params['json']      
+      
+      @access_token = "626a567926d1ab2f9892036459d2720beac690d8"
+      @access_token_secret = "904d3556be7f1532efc896e1eb1d7592bb4748a3"
+      
+      act = OAuth::AccessToken.from_hash(@consumer, {oauth_token: @access_token, oauth_token_secret: @access_token_secret})
+      
+      res = act.post("/price/v1", @toSend).body
+      
+      parsed = JSON.parse(res)
+      
+      @response = parsed['prices'][parsed['prices'].keys[0]]['price']
+      
+      @response = @response.to_f*1.3
       
       respond_to do |format|
           format.html {render action: 'price', layout: false}
       end
+
+
       
       # Try to find authentication first  end
   end
@@ -102,13 +124,33 @@ class ShapesController < ApplicationController
       #         price2 = s['value'].to_f
       #      end
       
-      @response = price1
-      #logger.info(@response)
+      @response = price1*1.3
+      logger.info(res.body)
+
       
       respond_to do |format|
           format.html {render layout: false}
       end
       
+  end
+    
+  def fork
+      
+      @shape = Shape.new(shape_params)
+      
+      if !user_signed_in?
+          format.html {render action: "denied"}
+          elsif @shape.save
+          system('cp '+ shape_params['id'] + '.png '+ @shape.id+'.png')
+          logger.info('\ncp '+ shape_params['id'] + '.png '+ @shape.id+'.png\n')
+
+          format.html { render layout: false}
+          format.json { render action: 'show', status: :created, location: @shape }
+          else
+          format.html { render action: 'new' }
+          format.json { render json: @shape.errors, status: :unprocessable_entity }
+      end
+
   end
 
   def destroy

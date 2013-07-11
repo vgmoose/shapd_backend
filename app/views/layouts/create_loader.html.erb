@@ -1,6 +1,8 @@
 <head>
 
 <style>
+     li { list-style:none; }
+    
     input
     {
         border:1px solid #ccc;
@@ -145,21 +147,51 @@ function hideAndNext()
     hideTheBeast()
 }
     
+    <% if !user_signed_in? %>
+
+function dunGoofed(data)
+    {
+        register.innerHTML = "<br><h1>Whoops!</h1>"+data+"<br>Username<br><input type='text' value='<%= Base64.decode64(params['a']).split('@')[0] %>'></input><br><br>Email address<br><input type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><button onclick='hideTheBeast();newuser=true;'>Forget it</button>";
+        newuser = true;
+        $("#register").animate({height: '600px'}, 300);
+        
+    }
+    <% end %>
+    
 function submitReg()
 {
-    $.post("/users", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value, password_confirmation:document.getElementById('user_password_confirmation').value}, authenticity_token: authToken, utf8: '✓'}, function(data){alert(data);});
+
+    $.post("/users", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value, password_confirmation:document.getElementById('user_password_confirmation').value}, authenticity_token: authToken, utf8: '✓'}, function(data){if (data.indexOf("success!")>-1) setupSaveShape(); else dunGoofed(data);});
+    
+    register.innerHTML = "<br><h1>Creating Account...</h1>";
+    $("#register").animate({height: '100px'}, 300);
 }
 
+function setupSaveShape()
+{
+    newuser = false;
+    $("#blackout2").fadeOut(500);
+
+    setTimeout("$('#idSaveButton').click()", 1);
+    
+    register.innerHTML = "<br><h1>Saving creation...</h1></input>";
+    $("#register").animate({top:'0'}, 300);
+   // setTimeout("$('#idSaveButton').click()", 1);
+    
+    
+    $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape()});
+    
+    //$.post("/new", {authenticity_token: authToken, shape: hashend}, function(data2){shapeID = data2; newuser =  false; saveShape()});
+}
 
 function createNewUser()
 {
     var black = document.createElement("div");
-
     
     <% if !user_signed_in? %>
     black.setAttribute("id", "blackout2");
     document.body.appendChild(black);
-        register.innerHTML = "<br><br><h1>Not so fast!</h1><br><br>We need to know a little bit more about you to before we save.<br><br><br>Email address<br><input type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><br><button onclick='hideTheBeast();newuser=true;'>No thanks</button>";
+        register.innerHTML = "<br><br><h1>Not so fast!</h1><br><br>We need to know a little bit more about you before we save.<br><br><br>Username<br><input type='text' value='<%= Base64.decode64(params['a']).split('@')[0] %>'></input><br><br>Email address<br><input type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><button onclick='hideTheBeast();newuser=true;'>No thanks</button>";
         freeze = true;
         newuser =  false;
     $("#register").animate({top:'0'}, 300);
@@ -170,12 +202,12 @@ function createNewUser()
     
     <% else %>
         newuser = false;
-        register.innerHTML = "<br><h1>Saving creation...</h1></input>";
+        register.innerHTML = "<br><h1>Saving creation...</h1";
     $("#register").animate({top:'0'}, 300);
     setTimeout("$('#idSaveButton').click()", 1);
 
 
-    $.post("/new", {user_id: userID, authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape()});
+    $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape()});
     
     <% end %>
     
@@ -186,11 +218,12 @@ function createNewUser()
 var screenShot = true;
 <% end %>
     
+    
 function saveShape()
 {
     if (typeof shapeID !== 'undefined')
     {
-        register.innerHTML = "<br><h1>Saving creation...</h1></input>";
+        register.innerHTML = "<br><h1>Saving creation...</h1>";
         $("#register").animate({top:'0'}, 300);
         $.post("/save", {id: shapeID, authenticity_token: "<%= form_authenticity_token %>", shape: hashend});
         loadScreenshotStage();

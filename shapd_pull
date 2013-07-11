@@ -1,0 +1,1 @@
+rsync -av  --exclude 'tmp' --exclude 'public/shapes/' --exclude '.git' --progress --rsh="ssh" ~/Sites/shapd/ ec2-user@shapd.co:/www/shapd
