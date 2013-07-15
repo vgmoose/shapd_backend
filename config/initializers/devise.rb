@@ -8,6 +8,18 @@ Devise.setup do |config|
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
+    
+    
+    require "omniauth-facebook"
+    config.omniauth :facebook, "611485622203669", "d2d424259a74471b8ae332f3f1c0119e"
+    
+    #require "omniauth-twitter"
+    #config.omniauth :twitter, "usuUahHoN7lf2wC5ogMnQ", "nP4t9xqLWvivqIINbeS8VleB9ZpjgLcIRybYlJF0Q"
+    
+    require "omniauth-google-oauth2"
+    config.omniauth :google_oauth2, "1047847377561.apps.googleusercontent.com", "RpLhVBdVy_ShaNyWnIsX1tGO", { access_type: "offline", approval_prompt: "" }
+    
+
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and

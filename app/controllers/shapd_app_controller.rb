@@ -45,11 +45,16 @@ class ShapdAppController < ApplicationController
     
     def edit
         
+        # check if viewer mode is on
+        if (!params[:view].nil?)
+            @view = true
+        end
+        
         # find the shape id from URL
         @shape = Shape.find(params[:id])
         
         # if a user is logged in, and their user_id matches the shape's owner
-        if !current_user.nil? and @shape[:user_id] == current_user[:id]
+        if (!current_user.nil? and @shape[:user_id] == current_user[:id]) or (((defined? @view) or (!params[:meta].nil?)) and @shape.public==1)
             respond_to do |format|
                 # deny access if those conditions aren't met
                 format.html {render action: "edit", layout: "create_loader"}

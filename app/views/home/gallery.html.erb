@@ -165,7 +165,7 @@ display: table-cell; vertical-align: middle;
                 <% shape_counts.each do |shape| %>
                 
                     <div class="box" id="shape<%= shape.id %>">
-                    <a href='javascript:fork_shape(<%=shape.id%>)'><img src='/shapes/<%=shape.id %>.png' height="150" width="150"> </a>
+                    <a href='/demo/<%=shape.id%>?view=1'><img src='/shapes/<%=shape.id %>.png' height="150" width="150"> </a>
                     <!--<iframe id="shape<%= shape.id %>" style="height:140px;width:150px;" src="/demo/<%= shape.id %>?meta=1"></iframe> -->
                     
                      

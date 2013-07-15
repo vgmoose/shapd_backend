@@ -51,6 +51,9 @@ Shapd::Application.routes.draw do
     get '/compose' => 'splashes#compose'
     get '/response' => 'shapd_app#resp'
     
+    post '/produce' => 'shapes#make_product'
+    post '/pricing3' => 'shapes#resin_price'
+    
     devise_scope :person do
         get '/login', :to => "devise/sessions#new"
         get '/signup', :to => "devise/registrations#new"

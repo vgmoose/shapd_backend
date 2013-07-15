@@ -18,6 +18,8 @@ gem 'awesome_nested_set', github: 'huoxito/awesome_nested_set', branch: 'rails4'
 gem 'oauth'
 gem 'reshape'
 
+gem 'spree_gateway', github: 'spree/spree_gateway'
+
 gem 'activerecord-session_store'
 
 gem 'protected_attributes'

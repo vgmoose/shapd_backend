@@ -4,6 +4,43 @@ class ShapesController < ApplicationController
   def validUser?
       current_user.id == @shape['user_id']
   end
+    
+  def make_product
+      
+      Spree::Image.class_eval do
+          attr_accessible :attachment
+      end
+      
+      Spree::Product.class_eval do
+          attr_accessible :name, :price, :meta_description, :description
+      end
+      
+      @shape = Shape.find(shape_params[:id])
+      
+      if (@shape.name.nil?)
+          name = "Untitled #"+shape_params[:id]
+      else
+          name = @shape.name
+      end
+      
+      @pyt = Spree::Product.create :name => name, :price => @shape.price, :meta_description => @shape.shape, :description => " "
+      
+      @pyt.available_on = Time.now
+      
+      @pyt.images << Spree::Image.create(:attachment => File.open('public/shapes/'+@shape.id.to_s+'.png'))
+      
+      @pyt.save!
+      
+      @shape.product_id = @pyt.id
+      
+      @shape.save!
+
+      respond_to do |format|
+            format.html { render nothing: true }
+      end
+              
+      
+  end
 
   def create
       
@@ -87,6 +124,12 @@ class ShapesController < ApplicationController
       
       @response = @response.to_f*1.3
       
+      @shape = Shape.find(shape_params[:id])
+      @shape.price = @response.round(2)
+      
+      @shape.save!
+      
+      
       respond_to do |format|
           format.html {render action: 'price', layout: false}
       end
@@ -95,6 +138,21 @@ class ShapesController < ApplicationController
       
       # Try to find authentication first  end
   end
+    
+    def resin_price
+        
+        @shape = Shape.find(shape_params[:id])
+        @shape.price = shape_params[:p]
+        
+        @shape.save!
+        
+        @response = @shape.price
+        
+        respond_to do |format|
+            format.html {render action: 'price', layout: false}
+        end
+        
+    end
     
   def price
       require 'net/http'
@@ -126,6 +184,13 @@ class ShapesController < ApplicationController
       
       @response = price1*1.3
       logger.info(res.body)
+      
+      
+      @shape = Shape.find(shape_params[:id])
+      @shape.price = @response.round(2)
+      
+      @shape.save!
+      
 
       
       respond_to do |format|
@@ -170,6 +235,6 @@ class ShapesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shape_params
-        params.permit(:name, :shape, :user_id, :meta, :authenticity_token, :id, :json, :public)
+        params.permit(:name, :shape, :user_id, :meta, :authenticity_token, :id, :json, :p, :public)
     end
 end

@@ -16,3 +16,11 @@ Spree.user_class = "User"
   Rails.application.config.to_prepare do
     require_dependency 'spree/authentication_helpers'
   end
+
+Spree::Image.class_eval do
+    attr_accessible :attachment
+end
+
+Spree::Product.class_eval do
+    attr_accessible :name, :price, :description
+end
