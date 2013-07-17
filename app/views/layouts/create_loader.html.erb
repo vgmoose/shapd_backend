@@ -48,7 +48,7 @@
     <% if user_signed_in? %>
     height:100px;
     <% else %>
-    height:600px;
+    height:550px;
     <% end %>
     width:600px;
 }
@@ -135,7 +135,7 @@ function hideTheBeast(state)
     if (state == 'publish')
         publishCreation();
     
-    $("#register").animate({top:'-600px'}, 300);
+    $("#register").animate({top:'-550px'}, 300);
     $("#blackout2").fadeOut(500);
     freeze = false;
     
@@ -158,19 +158,22 @@ function enterKey()
         submitReg();
 }
 
-function dunGoofed(data)
+function dunGoofed(data, user, passw, passw2)
     {
-        register.innerHTML = "<br><h1>Whoops!</h1>"+data+"<br>Username<br><input onkeypress='enterKey()' type='text' value='<%= Base64.decode64(params['a']).split('@')[0] %>'></input><br><br>Email address<br><input  onkeypress='enterKey()' type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input  onkeypress='enterKey()' id='user_password' type='password'></input><br><br>Confirm Password:<br><input  onkeypress='enterKey()' id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><button onclick='hideTheBeast(whatis);newuser=true;'>Forget it</button>";
+        register.innerHTML = "<br><h1>Whoops!</h1>"+data+"<br>Email address<br><input  onkeypress='enterKey()' type='text' id='user_email' value='"+user+"'></input><br><br>Password<br><input  onkeypress='enterKey()' id='user_password' type='password' value='"+passw+"'></input><br><br>Confirm Password:<br><input  onkeypress='enterKey()' id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()' class='tutButton buttonImg verdana' value='"+passw2+"'>Continue!</button><button onclick='hideTheBeast(whatis);newuser=true;' class='tutButton buttonImg'>Forget it</button>";
         newuser = true;
-        $("#register").animate({height: '600px'}, 300);
+        $("#register").animate({height: '550px'}, 300);
         
     }
     <% end %>
     
 function submitReg()
 {
+    email1 = document.getElementById('user_email').value;
+    pass1 = document.getElementById('user_password').value;
+    pass2 = document.getElementById('user_password_confirmation').value;
 
-    $.post("/users", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value, password_confirmation:document.getElementById('user_password_confirmation').value}, authenticity_token: authToken, utf8: '✓'}, function(data){if (data.indexOf("success!")>-1) {setupSaveShape();} else dunGoofed(data);});
+    $.post("/users", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value, password_confirmation:document.getElementById('user_password_confirmation').value}, authenticity_token: authToken, utf8: '✓'}, function(data){if (data.indexOf("success!")>-1) {setupSaveShape();for (var i = 1; i < 4; i++){document.getElementById('idProgressImg'+i).className = 'buttonImg';document.getElementById('idProgressImgNamesId'+i).className = 'buttonImg';}} else dunGoofed(data, email1, pass1, pass2)});
     
     register.innerHTML = "<br><h1>Creating Account...</h1>";
     $("#register").animate({height: '100px'}, 300);
@@ -201,7 +204,7 @@ function createNewUser()
     <% if !user_signed_in? and params['view'].nil? %>
     black.setAttribute("id", "blackout2");
     document.body.appendChild(black);
-        register.innerHTML = "<br><br><h1>Not so fast!</h1><br><br>We need to know a little bit more about you before we save.<br><br><br>Username<br><input type='text' onkeypress='enterKey()' value='<%= Base64.decode64(params['a']).split('@')[0] %>'></input><br><br>Email address<br><input type='text' onkeypress='enterKey()' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' onkeypress='enterKey()' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' onkeypress='enterKey()' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><button onclick='hideTheBeast(whatis);newuser=true;'>No thanks</button>";
+        register.innerHTML = "<br><br><h1>What's your name again?</h1><br>Sorry, but we need to know who you are so we can save your item.<br></input><br><br>Email address<br><input type='text' onkeypress='enterKey()' id='user_email'></input><br><br>Password<br><input id='user_password' onkeypress='enterKey()' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' onkeypress='enterKey()' type='password'></input><br><br><br><div id='publishActionContainer' width='100%' style='text-align:center'><button class='tutButton buttonImg verdana' onclick='submitReg()'>Continue!</button><button class='tutButton buttonImg' onclick='hideTheBeast(whatis);newuser=true;'>No thanks</button></div>";
         freeze = true;
         newuser =  false;
     $("#register").animate({top:'0'}, 300);

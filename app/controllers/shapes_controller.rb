@@ -140,6 +140,13 @@ class ShapesController < ApplicationController
       
       @shape.save!
       
+      if (params[:meta].nil?)
+      logger.info("nonscreenie: "+@response.to_s)
+          else
+          logger.info("screenie: "+@response.to_s)
+          end
+
+      
       
       respond_to do |format|
           format.html {render action: 'price', layout: false}
