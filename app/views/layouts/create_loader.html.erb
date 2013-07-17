@@ -85,25 +85,7 @@
         display:none;
     }
     
-    button
-    {
-            width:150px;
-            height:35px;
-            font-size:20px;
-            background:#3e9ad2;
-        color: white;
-        border: #000;
-        -webkit-box-shadow:0 0 4px #000;/*safari and Chrome*/
-        -moz-box-shadow:0 0 4px #000; /*Mozilla*/
-        -o-box-shadow:0 0 4px #000; /*Opera*/
-        -ms-box-shadow:0 0 4px #000; /*Ms IE*/
-        box-shadow:0 0 4px #000; /*W3C*/
-        -webkit-border-radius:15px;/*safari and Chrome*/
-        -moz-border-radius:15px; /*Mozilla*/
-        -o-box-border-radius:15px; /*Opera*/
-        -ms-box-border-radius:15px; /*Ms IE*/
-        border-radius:15px; /*W3C*/
-    }
+
     
 </style>
 <div id='register' class='swoopr'></div>
@@ -114,7 +96,7 @@ var whatis = "";
     
 <% if user_signed_in? %>
     userID = "<%= current_user.id %>";
-    var shapeLib =  "<%  shape_counts =  Shape.where(:user_id => current_user.id) %><% shape_counts.each do |shape| %><a href=\"javascript:window.shapeID='<%=shape.id%>';loadFromLib('<%= shape.shape %>')\"><img class='galleryImg' src='/shapes/<%=shape.id %>.png' height='100' width='100'></a><% end %>"
+    var shapeLib =  "<%  shape_counts =  Shape.where(:user_id => current_user.id) %><% shape_counts.each do |shape| %><a href=\"javascript:loadFromLib('<%= shape.shape %>')\"><img class='galleryImg' src='/shapes/<%=shape.id %>.png' height='100' width='100'></a><% end %>"
 <% end %>
     
 <% if @shape != nil %>
@@ -146,9 +128,12 @@ function hideTheBeast(state)
         setTimeout("location.href='/library';", 500);
         return;
     }
-
-    if (state == 'finalize')
+    
+    if (state == 'finalize' && !printable)
         getNewPrice();
+        
+    if (state == 'publish')
+        publishCreation();
     
     $("#register").animate({top:'-600px'}, 300);
     $("#blackout2").fadeOut(500);
@@ -166,10 +151,16 @@ function hideAndNext()
     
     <% if !user_signed_in? and params['view'].nil? %>
     var notSignedIn = true;
+    
+function enterKey()
+{
+    if (window.event && window.event.keyCode == 13)
+        submitReg();
+}
 
 function dunGoofed(data)
     {
-        register.innerHTML = "<br><h1>Whoops!</h1>"+data+"<br>Username<br><input type='text' value='<%= Base64.decode64(params['a']).split('@')[0] %>'></input><br><br>Email address<br><input type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><button onclick='hideTheBeast(whatis);newuser=true;'>Forget it</button>";
+        register.innerHTML = "<br><h1>Whoops!</h1>"+data+"<br>Username<br><input onkeypress='enterKey()' type='text' value='<%= Base64.decode64(params['a']).split('@')[0] %>'></input><br><br>Email address<br><input  onkeypress='enterKey()' type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input  onkeypress='enterKey()' id='user_password' type='password'></input><br><br>Confirm Password:<br><input  onkeypress='enterKey()' id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><button onclick='hideTheBeast(whatis);newuser=true;'>Forget it</button>";
         newuser = true;
         $("#register").animate({height: '600px'}, 300);
         
@@ -179,7 +170,7 @@ function dunGoofed(data)
 function submitReg()
 {
 
-    $.post("/users", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value, password_confirmation:document.getElementById('user_password_confirmation').value}, authenticity_token: authToken, utf8: '✓'}, function(data){if (data.indexOf("success!")>-1) setupSaveShape(); else dunGoofed(data);});
+    $.post("/users", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value, password_confirmation:document.getElementById('user_password_confirmation').value}, authenticity_token: authToken, utf8: '✓'}, function(data){if (data.indexOf("success!")>-1) {setupSaveShape();} else dunGoofed(data);});
     
     register.innerHTML = "<br><h1>Creating Account...</h1>";
     $("#register").animate({height: '100px'}, 300);
@@ -194,8 +185,11 @@ function setupSaveShape()
     $("#register").animate({top:'0'}, 300);
    // setTimeout("$('#idSaveButton').click()", 1);
     
-    
-    $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape()});
+    if (typeof notSignedIn === 'undefined')
+        $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape();});
+    else
+        $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; setTimeout("$('#idSaveButton').click()", 10);});
+
 
     //$.post("/new", {authenticity_token: authToken, shape: hashend}, function(data2){shapeID = data2; newuser =  false; saveShape()});
 }
@@ -207,7 +201,7 @@ function createNewUser()
     <% if !user_signed_in? and params['view'].nil? %>
     black.setAttribute("id", "blackout2");
     document.body.appendChild(black);
-        register.innerHTML = "<br><br><h1>Not so fast!</h1><br><br>We need to know a little bit more about you before we save.<br><br><br>Username<br><input type='text' value='<%= Base64.decode64(params['a']).split('@')[0] %>'></input><br><br>Email address<br><input type='text' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><button onclick='hideTheBeast(whatis);newuser=true;'>No thanks</button>";
+        register.innerHTML = "<br><br><h1>Not so fast!</h1><br><br>We need to know a little bit more about you before we save.<br><br><br>Username<br><input type='text' onkeypress='enterKey()' value='<%= Base64.decode64(params['a']).split('@')[0] %>'></input><br><br>Email address<br><input type='text' onkeypress='enterKey()' id='user_email' value='<%= Base64.decode64(params['a']) %>'></input><br><br>Password<br><input id='user_password' onkeypress='enterKey()' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' onkeypress='enterKey()' type='password'></input><br><br><br><button onclick='submitReg()'>Continue!</button><br><button onclick='hideTheBeast(whatis);newuser=true;'>No thanks</button>";
         freeze = true;
         newuser =  false;
     $("#register").animate({top:'0'}, 300);

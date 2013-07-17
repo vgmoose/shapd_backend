@@ -54,6 +54,8 @@ Shapd::Application.routes.draw do
     post '/produce' => 'shapes#make_product'
     post '/pricing3' => 'shapes#resin_price'
     
+    post '/publish' => 'shapes#make_public'
+    
     devise_scope :person do
         get '/login', :to => "devise/sessions#new"
         get '/signup', :to => "devise/registrations#new"

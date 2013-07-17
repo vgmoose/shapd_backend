@@ -5,6 +5,15 @@ class ShapesController < ApplicationController
       current_user.id == @shape['user_id']
   end
     
+  def make_public
+      @shape = Shape.find(shape_params[:id])
+      @shape.public = 1
+      @shape.save!
+      respond_to do |format|
+          format.html {render nothing: true, layout: false}
+      end
+  end
+    
   def make_product
       
       Spree::Image.class_eval do
@@ -23,7 +32,7 @@ class ShapesController < ApplicationController
           name = @shape.name
       end
       
-      @pyt = Spree::Product.create :name => name, :price => @shape.price, :meta_description => @shape.shape, :description => " "
+      @pyt = Spree::Product.create :name => name, :price => @shape.price, :meta_description => @shape.shape, :description => @shape.shape.split("|")[-1]
       
       @pyt.available_on = Time.now
       
@@ -34,9 +43,11 @@ class ShapesController < ApplicationController
       @shape.product_id = @pyt.id
       
       @shape.save!
+      
+      @response = @pyt.permalink;
 
       respond_to do |format|
-            format.html { render nothing: true }
+          format.html {render action: 'price', layout: false}
       end
               
       
@@ -147,7 +158,7 @@ class ShapesController < ApplicationController
         @shape.save!
         
         @response = @shape.price
-        
+                
         respond_to do |format|
             format.html {render action: 'price', layout: false}
         end

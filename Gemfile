@@ -16,7 +16,6 @@ gem 'ransack', github: 'ernie/ransack', branch: 'rails-4'
 gem 'awesome_nested_set', github: 'huoxito/awesome_nested_set', branch: 'rails4'
 
 gem 'oauth'
-gem 'reshape'
 
 gem 'spree_gateway', github: 'spree/spree_gateway'
 

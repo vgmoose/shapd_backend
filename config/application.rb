@@ -10,7 +10,6 @@ Bundler.require(:default, Rails.env)
 module Shapd
   class Application < Rails::Application
       config.autoload_paths += %W(#{config.root}/lib)
-
     
     config.to_prepare do
       # Load application's model / class decorators
