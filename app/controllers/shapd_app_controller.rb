@@ -31,6 +31,7 @@ class ShapdAppController < ApplicationController
         # it wasn't
         else
             respond_to do |format|
+                # normally the denial would go here
                 format.html {render layout: "create_loader"}
             end
         end

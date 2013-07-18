@@ -17,7 +17,7 @@ Devise.setup do |config|
     #config.omniauth :twitter, "usuUahHoN7lf2wC5ogMnQ", "nP4t9xqLWvivqIINbeS8VleB9ZpjgLcIRybYlJF0Q"
     
     require "omniauth-google-oauth2"
-    config.omniauth :google_oauth2, "1047847377561.apps.googleusercontent.com", "RpLhVBdVy_ShaNyWnIsX1tGO", { access_type: "offline", approval_prompt: "" }
+    config.omniauth :google_oauth2, "338700432904-cr21i2ot33k06m7rhpg2u7bap8urvipu.apps.googleusercontent.com", "KG36gOkCKeQqmSBYJ1htY1U9", { access_type: "offline", approval_prompt: "" }
     
 
 
