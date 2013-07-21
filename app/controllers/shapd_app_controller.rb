@@ -38,6 +38,14 @@ class ShapdAppController < ApplicationController
         
     end
     
+    def feedback
+        
+    end
+    
+    def login
+        
+    end
+    
     def resp
         respond_to do |format|
             format.html {render action: "response"}

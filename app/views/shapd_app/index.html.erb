@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="css/popups.css" />
 
 			<script src="js/libs/jquery-1.9.1.js"></script>
+            <script src="js/libs/jquery.raty.min.js"></script>
 			<script src="js/libs/jquery-1.10.3.min.js"></script>
             <script src="js/libs/three.min.js"></script>
             <script src="js/libs/Detector.js"></script>
@@ -33,6 +34,7 @@
             <script src="js/jsonMaker.js"></script>
             <script src="js/popups.js"></script>
             <script src="js/tutorial.js"></script>
+			<script src="js/shapeSliders.js"></script>
 
             
 		<script>
@@ -48,6 +50,16 @@
 				active: false,
 				alwaysOpen: false,
 				icons: icons,
+				activate: function(event, ui) {
+					if ($( "#materials" ).accordion( "option", "active" ) !== false)
+					{
+						document.getElementById('idmaterialDetailContainer').style.opacity = '0.5';
+					}
+					else
+					{
+						document.getElementById('idmaterialDetailContainer').style.opacity = '1';
+					}
+				}
 		})});
 		$(function() {
 			$( "#plastics" ).accordion({
@@ -56,6 +68,7 @@
 				active: false,
 				alwaysOpen: false,
 				icons: icons,
+				
 		})});
 		$(function() {
 			$( "#metals" ).accordion({
@@ -85,32 +98,7 @@
 		var icons = {
 				header: "ui-icon-circle-arrow-e",
 				activeHeader: "ui-icon-circle-arrow-s"
-			};
-		
-		$(function() {
-			$( "#slider" ).slider({
-				value: 66,
-				min: 25,
-				max: 175,
-				step: 1,
-				slide: function(event, ui){
-					$( "#scale" ).val(ui.value);
-				}
-			})
-			$( "#scale" ).val( $( "#slider" ).slider( "value" ) );
-		});	
-		
-		$(function() {
-			$( "#thickslider" ).slider({
-				value: 1.75,
-				min: .5,
-				max: 5,
-				step: .01,
-				slide: function(event, ui){
-					$( "#thickscale" ).val(ui.value);
-				}
-			})});	
-		
+			};	
 		</script>
 	</head>
 
@@ -119,19 +107,13 @@
 		<div id = "container" z-index="100"></div>
         <iframe id="shape_stage" style="left:0;right:0;position:absolute;top:0;"frameborder=0 height=500 width=500></iframe>
         <div id = "blackout"></div>
-        		
-		<div align = "left" style = "display: none; background-color: transparent;  padding: 0 !important; bottom: 11%; left: 50%; margin-left:-100px; position: absolute; height: 10px; width: 200px;" id = "sliderContainer">
-			<div id = "slider" class="menuHeader"></div>
-		</div>
 		
-		<div align = "left" style = "display: none; background-color: transparent;  padding: 0 !important; bottom: 32.5%; left: 20%; position: absolute; height: 10px; width: 250px;" id = "thicknessContainer">
-			<div id = "shapethin">Your shape is too thin to print!</div>
-			<div id = "increasesize">Please either increase thickness or increase the scale.</div>
-			<p>Thickness:</p><div id = "thickslider" class="menuHeader"></div>
+		<div align = "left" style = "display: none;  padding: 0 !important; bottom: 32.5%; left: 20%; position: absolute; height: 10px; width: 250px;" id = "thicknessContainer">
+			<div id = "shapethin" style ="font-size:18px; font-weight:500" class="floatingTextContainer">Your shape is too thin to print!</div>
 		</div>
-        </div>
+       
 		
-		<div align = "left" style = "display: none; font-size: 80%; background-color: transparent; position: absolute; padding: 0 !important; top: 1%; left: 1%" id = "materials">
+		<div align = "left" style = "display: none; font-size: 80%; background-color: transparent; position: absolute; padding: 0 !important; top: 1%; left: 1%; z-index:1001;" id = "materials">
 		<h3 class="materialHeader"><img class="materialImg" src = assets/imgs/materials/plastic.png>     Plastics</h3>
         <div id = "plastics" class="menuHeader">
 			<h3><img class="materialImg" src = assets/imgs/materials/regularplastic.png>     Rough</h3>
@@ -164,9 +146,6 @@
 			<h3><img class="materialImg" src = assets/imgs/materials/alumide.png>     Alumide</h3>
 				<div><div id = "Alumide regular" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/regularalumide.png>    Regular</div>
 					<div id = "Alumide polished" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/polishedalumide.png>    Polished</div></div>
-			<h3><img class="materialImg" src = assets/imgs/materials/brass.png>     Brass</h3>
-				<div><div id = "Brass regular" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/regularbrass.png>    Regular</div>
-					<div id = "Brass gold plated polished" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/goldplatedbrass.png>    Gold Plated</div></div>
 			<h3><img class="materialImg" src = assets/imgs/materials/steel.png>     Stainless Steel</h3><div id = "steel">
 				<h3><img class="materialImg" src = assets/imgs/materials/graysteel.png>     Gray Steel</h3>
 					<div><div id = "Stainless steel regular" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/regularsteel.png>    Regular</div></div>
@@ -175,7 +154,11 @@
 					<div id = "Stainless steel bronze glossy" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/bronzeglossysteel.png>    Glossy</div></div>
 				<h3><img class="materialImg" src = assets/imgs/materials/goldsteel.png>     Gold Plated</h3>
 					<div><div id = "Stainless steel gold matte" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/goldmattesteel.png>    Matte</div>
-					<div id = "Stainless steel gold glossy" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/goldglossysteel.png>    Glossy</div></div></div></div>
+					<div id = "Stainless steel gold glossy" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/goldglossysteel.png>    Glossy</div></div></div>
+                 <h3><img class="materialImg" src = assets/imgs/materials/brass.png>     Brass</h3>
+					<div><div id = "Brass regular" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/regularbrass.png>    Regular</div>
+					<div id = "Brass gold plated polished" class="mouseHover"><img class="materialImg" src = assets/imgs/materials/goldplatedbrass.png>    Gold Plated</div></div></div>
+                    
 		
 		<h3><img class="materialImg" src = assets/imgs/materials/preciousmetal.png>     Precious Metals</h3>
         <div id = "preciousMetals" class="menuHeader">

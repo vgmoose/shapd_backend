@@ -1,7 +1,18 @@
 <head>
 
 <style>
-     li { list-style:none; }
+        ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        /* For IE, the outcast */
+        zoom:1;
+        *display: inline;
+    }
+    li {
+        padding: 2px 5px;
+        list-style:none; 
+    }
     
     input
     {
@@ -9,6 +20,33 @@
         padding:4px 4px;
         line-height:20px;
         min-height:20px;
+        font-size:13px;
+        
+        width:200px;
+        
+        border-radius:3px;
+        -moz-border-radius:3px;
+        -webkit-border-radius:3px;
+        
+        transition:border linear .25s,
+        box-shadow linear .25s;
+        -webkit-transition:border linear .25s,
+        box-shadow linear .25s;
+        -moz-transition:border linear .25s,
+        box-shadow linear .25s;
+        
+        box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
+        -webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
+        -moz-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
+        
+        background-color:#F9F9F9;
+    }
+    
+        
+    textarea
+    {
+        border:1px solid #ccc;
+        padding:4px 4px;
         font-size:13px;
         
         width:200px;
@@ -40,7 +78,7 @@
     font-family: helvetica, arial;
     border-radius: 20px;
     position: fixed;
-    top: -600;
+    top: -575;
     left: 50%;
      margin-left: -300px;
     margin-top: -20px;
@@ -48,9 +86,9 @@
     <% if user_signed_in? %>
     height:100px;
     <% else %>
-    height:550px;
+    height:575px;
     <% end %>
-    width:600px;
+    width:575px;
 }
     div
     {
@@ -93,10 +131,12 @@
 <script>
     
 var whatis = "";
-    
+
 <% if user_signed_in? %>
     userID = "<%= current_user.id %>";
+    <% if params[:meta] != "1" %>
     var shapeLib =  "<%  shape_counts =  Shape.where(:user_id => current_user.id) %><% shape_counts.each do |shape| %><a href=\"javascript:loadFromLib('<%= shape.shape %>')\"><img class='galleryImg' src='/shapes/<%=shape.id %>.png' height='100' width='100'></a><% end %>"
+    <% end %>
 <% end %>
     
 <% if @shape != nil %>
@@ -109,6 +149,9 @@ var shapeID = "<%= @shape[:id] %>";
     var viewer = true;
     shapeID = -1;
 <% end %>
+
+var noFeedback = true;
+
 
 var authToken = "<%= form_authenticity_token %>";
 <%
@@ -133,11 +176,15 @@ function hideTheBeast(state)
         getNewPrice();
         
     if (state == 'publish')
-        publishCreation();
+    {
+        getFeedback();
+    }
+    else
+        freeze = false;
+
     
-    $("#register").animate({top:'-550px'}, 300);
+    $("#register").animate({top:'-575px'}, 300);
     $("#blackout2").fadeOut(500);
-    freeze = false;
     
 
 }
@@ -145,7 +192,7 @@ function hideTheBeast(state)
     
 function hideAndNext()
 {
-    setTimeout("$('#idSaveButton').click()", 500);
+    setTimeout("$('#idSaveButton').mousedown()", 500);
    // hideTheBeast()
 }
     
@@ -158,14 +205,55 @@ function enterKey()
         submitReg();
 }
 
+function enterKey2()
+{
+    if (window.event && window.event.keyCode == 13)
+        submitLog();
+}
+
 function dunGoofed(data, user, passw, passw2)
     {
-        register.innerHTML = "<br><h1>Whoops!</h1>"+data+"<br>Email address<br><input  onkeypress='enterKey()' type='text' id='user_email' value='"+user+"'></input><br><br>Password<br><input  onkeypress='enterKey()' id='user_password' type='password' value='"+passw+"'></input><br><br>Confirm Password:<br><input  onkeypress='enterKey()' id='user_password_confirmation' type='password'></input><br><br><br><button onclick='submitReg()' class='tutButton buttonImg verdana' value='"+passw2+"'>Continue!</button><button onclick='hideTheBeast(whatis);newuser=true;' class='tutButton buttonImg'>Forget it</button>";
+        var thing = "things";
+        num = data.match(/\d error/g);
+        num = num.toString().match(/\d/g);
+        if (num==1)
+            thing = "thing";
+            
+        data = data.replace("error ", "errors ");
+            
+        register.innerHTML = "<br><h1>Whoops!</h1>"+data.replace("errors prohibited this user from being saved", "quick "+thing)+"<br>Email address<br><input placeholder='you@example.com' onkeypress='enterKey()' type='text' id='user_email' value='"+user+"'></input><br><br>Password<br><input placeholder='6 or more characters' onkeypress='enterKey()' id='user_password' type='password' value='"+passw+"'></input><br><br>Confirm Password:<br><input   placeholder='just to be sure!' onkeypress='enterKey()' value='"+passw2+"' id='user_password_confirmation' type='password'></input><br><br><br><button onclick='hideTheBeast(whatis);newuser=true;' class='tutButton buttonImg'>No, thanks.</button><button onclick='submitReg()' class='tutButton buttonImg verdana'>Continue!</button><br><br><a href='javascript:realLogin()'><font color=white><u><b>Already have an account?</b></u></font></a>";
         newuser = true;
-        $("#register").animate({height: '550px'}, 300);
+        $("#register").animate({height: '575px'}, 300);
         
     }
     <% end %>
+    
+function realLogin()
+{
+    register.innerHTML = "<br><h1>Welcome back!</h1><br>Email address<br><input placeholder='you@example.com' onkeypress='enterKey2()' type='text' id='user_email'></input><br><br>Password<br><input  onkeypress='enterKey2()' placeholder='shhh... tell no one' id='user_password' type='password'></input><br><br><br><button onclick='createNewUser();newuser=true;' class='tutButton buttonImg'>Go Back</button><button onclick='submitLog()' class='tutButton buttonImg verdana'>Login</button>";
+    $("#register").animate({height: '400px'}, 300);
+
+}
+
+function dunGoofedTheSequel(data, user, pass)
+{
+       register.innerHTML = "<br><h1>Whoops!</h1><br>"+data+"<br><br><br>Email address<br><input value='"+user+"' placeholder='you@example.com'  onkeypress='enterKey2()' type='text' id='user_email'></input><br><br>Password<br><input value='"+pass+"' onkeypress='enterKey2()' placeholder='shhh... tell no one' id='user_password' type='password'></input><br><br><br><button onclick='createNewUser();newuser=true;' class='tutButton buttonImg'>Go Back</button><button onclick='submitLog()' class='tutButton buttonImg verdana'>Login</button>";
+        $("#register").animate({height: '450px'}, 300);
+}
+
+function submitLog()
+{
+
+    user = document.getElementById('user_email').value;
+    pass = document.getElementById('user_password').value;
+    
+    $.post("/login", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value}, authenticity_token: authToken, utf8: '✓'}, function(data){setupSaveShape();for (var i = 1; i < 4; i++){document.getElementById('idProgressImg'+i).className = 'buttonImg';document.getElementById('idProgressImgNamesId'+i).className = 'buttonImg';}}).fail( function(xhr, textStatus, errorThrown) {dunGoofedTheSequel(xhr.responseText, user, pass);});
+
+        
+    register.innerHTML = "<br><h1>Logging in...</h1>";
+    $("#register").animate({height: '100px'}, 300);
+
+}
     
 function submitReg()
 {
@@ -191,7 +279,7 @@ function setupSaveShape()
     if (typeof notSignedIn === 'undefined')
         $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape();});
     else
-        $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; setTimeout("$('#idSaveButton').click()", 10);});
+        $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; setTimeout("$('#idSaveButton').mousedown()", 10);});
 
 
     //$.post("/new", {authenticity_token: authToken, shape: hashend}, function(data2){shapeID = data2; newuser =  false; saveShape()});
@@ -200,24 +288,26 @@ function setupSaveShape()
 function createNewUser()
 {
     var black = document.createElement("div");
-    
+        
     <% if !user_signed_in? and params['view'].nil? %>
     black.setAttribute("id", "blackout2");
     document.body.appendChild(black);
-        register.innerHTML = "<br><br><h1>What's your name again?</h1><br>Sorry, but we need to know who you are so we can save your item.<br></input><br><br>Email address<br><input type='text' onkeypress='enterKey()' id='user_email'></input><br><br>Password<br><input id='user_password' onkeypress='enterKey()' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' onkeypress='enterKey()' type='password'></input><br><br><br><div id='publishActionContainer' width='100%' style='text-align:center'><button class='tutButton buttonImg verdana' onclick='submitReg()'>Continue!</button><button class='tutButton buttonImg' onclick='hideTheBeast(whatis);newuser=true;'>No thanks</button></div>";
+        register.innerHTML = "<br><br><h1>What's your name again?</h1><br>Sorry, but you'll have to create an account to save your item.<br></input><br><br>Email address<br><input type='text' onkeypress='enterKey()'  placeholder='you@example.com' id='user_email'></input><br><br>Password<br><input id='user_password'  placeholder='6 or more characters' onkeypress='enterKey()' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' placeholder='just to be sure!'  onkeypress='enterKey()' type='password'></input><br><br><br><div id='publishActionContainer' width='100%' style='text-align:center'><button class='tutButton buttonImg verdana' onclick='hideTheBeast(whatis);newuser=true;'>No, thanks.</button><button class='tutButton buttonImg' onclick='submitReg()'>Continue!</button></div><br><a href='javascript:realLogin()'><font color=white><u><b>Already have an account?</b></u></font></a>";
+        
+        // register.innerHTML = '<br><br><h1>What\'s your name again?</h1><br>Sorry, but we need to know who you are so we can save your item.<br></input><br><<iframe src="/login_other" width="450" frameborder="no" height="250"></iframe>';
         freeze = true;
         newuser =  false;
-    $("#register").animate({top:'0'}, 300);
+    $("#register").animate({top:'0', height: '575px'}, 300);
     $("#blackout2").fadeIn(500);
 
 
     //    $("#register").clearQueue().fadeIn(500);
-    
+
     <% else %>
         newuser = false;
         register.innerHTML = "<br><h1>Saving creation...</h1";
     $("#register").animate({top:'0'}, 300);
-    setTimeout("$('#idSaveButton').click()", 1);
+    setTimeout("$('#idSaveButton').mousedown()", 1);
 
 
    // $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape()});

@@ -55,6 +55,9 @@ Shapd::Application.routes.draw do
     post '/pricing3' => 'shapes#resin_price'
     
     post '/publish' => 'shapes#make_public'
+    get '/login_other' => 'shapd_app#login'
+    
+    post '/feedback' => 'shapd_app#feedback'
     
     devise_scope :person do
         get '/login', :to => "devise/sessions#new"

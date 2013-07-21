@@ -96,9 +96,6 @@ class ShapesController < ApplicationController
               file.write(shape_screen)
           end
       end
-      
-      system('convert '+path.to_s+' -transparent white '+path.to_s);
-
           
       respond_to do |format|
           format.html { render nothing: true}
@@ -139,12 +136,6 @@ class ShapesController < ApplicationController
       @shape.price = @response.round(2)
       
       @shape.save!
-      
-      if (params[:meta].nil?)
-      logger.info("nonscreenie: "+@response.to_s)
-          else
-          logger.info("screenie: "+@response.to_s)
-          end
 
       
       
@@ -160,7 +151,7 @@ class ShapesController < ApplicationController
     def resin_price
         
         @shape = Shape.find(shape_params[:id])
-        @shape.price = shape_params[:p]
+        @shape.price = shape_params[:p].to_f.round(2)
         
         @shape.save!
         

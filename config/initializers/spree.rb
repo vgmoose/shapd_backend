@@ -17,15 +17,53 @@ Spree::Config.set(logo: "store/shapd.png")
 Spree::Config[:address_requires_state] = false
 
 
+Spree::StockItem.class_eval do
+    attr_accessible :variant, :backorderable
+end
+
 Rails.application.config.to_prepare do
 require_dependency 'spree/authentication_helpers'
 end
+
+Spree::Payment.class_eval do
+    attr_accessible :amount, :payment_method_id
+end
+
+Spree::StockMovement.class_eval do
+    attr_accessible :quantity, :originator
+end
+
+Spree::Order.class_eval do
+    attr_accessible :currency
+end
+
+
+
+
+Spree::Order.class_eval do
+    attr_accessible :payments_attributes
+end
+
+
+Spree::StockItem.class_eval do
+    attr_accessible :variant, :backorderable
+end
+
 
 Spree::Config[:track_inventory_levels] = false
 
 Spree::Image.class_eval do
     attr_accessible :attachment
 end
+
+Spree::Taxonomy.class_eval do
+    attr_accessible :name
+end
+
+Spree::Taxon.class_eval do
+    attr_accessible :taxonomy_id, :name
+end
+
 
 Spree::ShippingMethod.class_eval do
     attr_accessible :name, :display_on, :tracking_url, :calculator_type
