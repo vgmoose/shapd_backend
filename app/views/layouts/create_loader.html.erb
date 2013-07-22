@@ -150,7 +150,10 @@ var shapeID = "<%= @shape[:id] %>";
     shapeID = -1;
 <% end %>
 
+
+<% if Feedback.where(user_id: current_user.id).empty? %>
 var noFeedback = true;
+<% end %>
 
 
 var authToken = "<%= form_authenticity_token %>";

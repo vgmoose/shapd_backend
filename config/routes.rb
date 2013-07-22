@@ -13,6 +13,7 @@ Shapd::Application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
     resources :splashes
+    resources :feedbacks
 
   resources :shapes
 
@@ -57,7 +58,7 @@ Shapd::Application.routes.draw do
     post '/publish' => 'shapes#make_public'
     get '/login_other' => 'shapd_app#login'
     
-    post '/feedback' => 'shapd_app#feedback'
+    post '/feedback' => 'feedback#create'
     
     devise_scope :person do
         get '/login', :to => "devise/sessions#new"
