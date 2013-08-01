@@ -3,7 +3,7 @@ class FeedbackController < ApplicationController
     def create
         
         if (feedback_params['rating'] != "|||" or feedback_params['message'] != "")
-            @feed = Feedback.new(feedback_params)
+            @feed = Feedback.new(feedback_params.merge({user_id: current_user.id}))
             @feed.save!
         end
         

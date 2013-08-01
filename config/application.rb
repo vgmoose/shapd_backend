@@ -10,6 +10,11 @@ Bundler.require(:default, Rails.env)
 module Shapd
   class Application < Rails::Application
       config.autoload_paths += %W(#{config.root}/lib)
+      
+      config.action_mailer.default_url_options = { :host => 'shapd.co' }
+
+      config.assets.js_compressor = :uglifier
+      config.assets.css_compressor = :yui
     
     config.to_prepare do
       # Load application's model / class decorators

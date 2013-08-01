@@ -6,18 +6,21 @@ gem 'rails', '4.0.0'
 # Use mysql2 as the database for Active Record
 gem 'mysql2'
 
+# for development
+gem 'sqlite3'
+
 # omniauth stuffs
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-
+gem 'newrelic_rpm'
 gem 'spree', github: 'spree/spree', branch: 'rails4'
 gem 'ransack', github: 'ernie/ransack', branch: 'rails-4'
 gem 'awesome_nested_set', github: 'huoxito/awesome_nested_set', branch: 'rails4'
 
 gem 'oauth'
 
-gem 'spree_gateway', github: 'spree/spree_gateway'
+gem 'spree_gateway', github: 'vgmoose/spree_gateway'
 
 gem 'activerecord-session_store'
 

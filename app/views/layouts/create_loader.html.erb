@@ -122,7 +122,7 @@
         z-index:99999;
         display:none;
     }
-    
+
 
     
 </style>
@@ -150,10 +150,13 @@ var shapeID = "<%= @shape[:id] %>";
     shapeID = -1;
 <% end %>
 
+<% if user_signed_in? %>
 
 <% if Feedback.where(user_id: current_user.id).empty? %>
 var noFeedback = true;
 <% end %>
+<% end %>
+
 
 
 var authToken = "<%= form_authenticity_token %>";
@@ -252,6 +255,8 @@ function submitLog()
     
     $.post("/login", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value}, authenticity_token: authToken, utf8: '✓'}, function(data){setupSaveShape();for (var i = 1; i < 4; i++){document.getElementById('idProgressImg'+i).className = 'buttonImg';document.getElementById('idProgressImgNamesId'+i).className = 'buttonImg';}}).fail( function(xhr, textStatus, errorThrown) {dunGoofedTheSequel(xhr.responseText, user, pass);});
 
+    window.noFeedback = true;
+
         
     register.innerHTML = "<br><h1>Logging in...</h1>";
     $("#register").animate({height: '100px'}, 300);
@@ -265,6 +270,8 @@ function submitReg()
     pass2 = document.getElementById('user_password_confirmation').value;
 
     $.post("/users", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value, password_confirmation:document.getElementById('user_password_confirmation').value}, authenticity_token: authToken, utf8: '✓'}, function(data){if (data.indexOf("success!")>-1) {setupSaveShape();for (var i = 1; i < 4; i++){document.getElementById('idProgressImg'+i).className = 'buttonImg';document.getElementById('idProgressImgNamesId'+i).className = 'buttonImg';}} else dunGoofed(data, email1, pass1, pass2)});
+    
+    window.noFeedback = true;
     
     register.innerHTML = "<br><h1>Creating Account...</h1>";
     $("#register").animate({height: '100px'}, 300);
@@ -295,7 +302,7 @@ function createNewUser()
     <% if !user_signed_in? and params['view'].nil? %>
     black.setAttribute("id", "blackout2");
     document.body.appendChild(black);
-        register.innerHTML = "<br><br><h1>What's your name again?</h1><br>Sorry, but you'll have to create an account to save your item.<br></input><br><br>Email address<br><input type='text' onkeypress='enterKey()'  placeholder='you@example.com' id='user_email'></input><br><br>Password<br><input id='user_password'  placeholder='6 or more characters' onkeypress='enterKey()' type='password'></input><br><br>Confirm Password:<br><input id='user_password_confirmation' placeholder='just to be sure!'  onkeypress='enterKey()' type='password'></input><br><br><br><div id='publishActionContainer' width='100%' style='text-align:center'><button class='tutButton buttonImg verdana' onclick='hideTheBeast(whatis);newuser=true;'>No, thanks.</button><button class='tutButton buttonImg' onclick='submitReg()'>Continue!</button></div><br><a href='javascript:realLogin()'><font color=white><u><b>Already have an account?</b></u></font></a>";
+        register.innerHTML = "<br><br><h1>What's your name again?</h1>Sorry, but you'll have to create an account to save your item.</input><br><br>Email address<br><input type='text' onkeypress='enterKey()'  placeholder='you@example.com' id='user_email'></input><br><br>Password (6+ characters)<br><input id='user_password'  placeholder='6 or more characters' onkeypress='enterKey()' type='password'></input><br><br>Confirm Password<br><input id='user_password_confirmation' placeholder='just to be sure!'  onkeypress='enterKey()' type='password'></input><br><br><br><div id='publishActionContainer' width='100%' style='text-align:center'><button class='tutButton buttonImg verdana' onclick='hideTheBeast(whatis);newuser=true;'>No, thanks.</button><button class='tutButton buttonImg' onclick='submitReg()'>Continue!</button></div><br><a href='javascript:realLogin()'><font color=white><u><b>Already have an account?</b></u></font></a>";
         
         // register.innerHTML = '<br><br><h1>What\'s your name again?</h1><br>Sorry, but we need to know who you are so we can save your item.<br></input><br><<iframe src="/login_other" width="450" frameborder="no" height="250"></iframe>';
         freeze = true;

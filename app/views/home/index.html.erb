@@ -535,7 +535,7 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
                             <img src="img/assets/3d_examples/5.jpg" alt="img05" height="300" width="300" />
                             </a>
 						</li>
-						<li>
+						<li>  
                        		<a href="http://www.shapeways.com/model/261411/spiral-cuff-sz-s-m.html">
 							<img src="img/assets/3d_examples/6.jpg" alt="img06" height="300" width="300" />
                             </a>
@@ -693,6 +693,7 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
 
 		</section>
 
+
 		<!-- TEAM -->
 		<section class="content" id="team" data-bgcolor="#efefef">
 			<div class="container">
@@ -706,10 +707,10 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
 				</div>
 
 				<!-- Profiles -->
-				<div class="row tcenter profile" style="margin-left:125px;">
+				<div class="row tcenter profile">
 
 					<div class="span3 withinner">
-						<img src="img/assets/team/jon_cropped_small.jpg" alt="Jon OShaughnessy Shapd">
+						<img src="img/assets/team/jon_bw.png" alt="Jon OShaughnessy Shapd">
 						<div class="innerbox">
 							<p class="leads">Jon O'Shaughnessy</p>
 							<p class="position">CEO, Founder</p>
@@ -718,21 +719,31 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
 					</div>
 
 					<div class="span3 withinner">
-						<img src="img/assets/team/jason_cropped_small.jpg" alt="Jason Perreault Shapd">
+						<img src="img/assets/team/jason_bw.png" alt="Jason Perreault Shapd">
 						<div class="innerbox">
 							<p class="leads">Jason Perreault</p>
 							<p class="position">Code Guru</p>
 							<p>Jason makes the magic happen at Shapd. Plays a mean game of chess too.</p>
 						</div>
 					</div>
+                    
+                    <div class="span3 withinner">
+						<img src="img/assets/team/ricky_bw.png" alt="Ricky Ayoub Shapd">
+						<div class="innerbox">
+							<p class="leads">Ricky Ayoub</p>
+							<p class="position">Code Guru</p>
+							<p>does it make even an inkling of sense to default a "date of birth" field to today's date?</p>
+						</div>
+					</div>
 
 					<div class="span3 withinner">
-						<img src="img/assets/team/question.png" alt="Join Shaped">
+						<img src="img/assets/team/question2.png" alt="Join Shaped">
 						<div class="innerbox">
 							<p class="leads">Join Us!</p>
 							<p>We're looking for great technical talent to join our team. We love working on something meaningful that's both incredibly exciting and challenging. Email us if interested.</p>
 						</div>
 					</div>
+                    
                     
 				</div>
 
@@ -825,13 +836,6 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
 						<h3><span id="result3">Sign up to our mailing list:</span></h3>
 						<p><span id="result4">We'll keep you updated 1-2 times per month.</span></p>
                         <br>
-                        
-                        <%= form_tag("/signup", method: "post", remote: true) do %>
-
-  <%= text_field_tag(:email, "", placeholder: "Your Email Address") %>
-  <%= submit_tag("Sign Up") %>
-<% end %>
-                        <!--
 						<div class="btn-toolbar">
   							<div>
   								<form id="email_form2" action="php/input_email2.php" method="post">
@@ -839,22 +843,13 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
 								<input id="submit2" name="submit" type="submit" value="Sign Up">
                                 </form>
   							</div>
-					</div> -->
+					</div>
 
 					</div>
 				</div>
 			</div>
 		</section>
 
-<!-- 
-
-<div class="container">
-<h3>Library</h3>
-<a href=/prototype.html><font size="8"><i class="icon-plus-sign"></i></font><font size="4"> Create New Object</font></a>
-<br>
-  </div>
-
--->
 		<!-- FOOTER -->
 		<footer>
 			<div class="container" data-bgcolor="#555">
@@ -876,6 +871,7 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
 
 	<!-- Scripts -->
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+	<script src="/js/jquery.tweet.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/init.js"></script>
 
@@ -883,7 +879,7 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
 	//<![CDATA[
 	$(window).load(function(){ 
 		// Twitter Username
-		humbler.thetwitter('shapdco');
+		humbler.thetwitter('ShapdCo');
 		
 
 		//Google Map
