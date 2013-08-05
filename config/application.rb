@@ -15,7 +15,8 @@ module Shapd
 
       config.assets.js_compressor = :uglifier
       config.assets.css_compressor = :yui
-    
+      StateMachine::Machine.ignore_method_conflicts = true
+
     config.to_prepare do
       # Load application's model / class decorators
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|

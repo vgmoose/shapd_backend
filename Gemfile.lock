@@ -323,6 +323,7 @@ GEM
     wasabi (2.5.1)
       httpi (~> 1.0)
       nokogiri (>= 1.4.0)
+    yui-compressor (0.11.0)
 
 PLATFORMS
   ruby
@@ -353,3 +354,4 @@ DEPENDENCIES
   sprockets
   sqlite3
   uglifier (>= 1.3.0)
+  yui-compressor
