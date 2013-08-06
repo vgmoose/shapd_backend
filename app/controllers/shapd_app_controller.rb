@@ -66,7 +66,7 @@ class ShapdAppController < ApplicationController
         if (!current_user.nil? and @shape[:user_id] == current_user[:id]) or (((defined? @view) or (!params[:meta].nil?)) and @shape.public==1)
             respond_to do |format|
                 # deny access if those conditions aren't met
-                format.html {render action: "edit", layout: "create_loader"}
+                format.html {render action: "index", layout: "create_loader"}
             end
         else
             respond_to do |format|

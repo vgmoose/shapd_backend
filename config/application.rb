@@ -17,6 +17,7 @@ module Shapd
       config.assets.js_compressor = :uglifier
       StateMachine::Machine.ignore_method_conflicts = true
 
+
     config.to_prepare do
       # Load application's model / class decorators
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
@@ -28,6 +29,17 @@ module Shapd
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
     end
+
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.3'
+
+    config.assets.js_compressor = :uglifier
+
+    config.assets.css_compressor = :yui
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

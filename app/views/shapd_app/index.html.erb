@@ -15,42 +15,16 @@
 		<!-- <link rel="stylesheet" type="text/css" href="css/jquery-1.10.3.css" /> -->
         <!-- Removed the above line to replace with our own custom JQuery CSS in dropdownCSS.css. Keeping in now for reference when we refactor. -->
         <link rel="stylesheet" type="text/css" href="css/popups.css" />
-
-			<script src="js/libs/jquery-1.9.1.js"></script>
-            <script src="js/libs/jquery.raty.min.js"></script>
-			<script src="js/libs/jquery-1.10.3.min.js"></script>
-			<script src="js/libs/Detector.js"></script>
-			<script>
+        
+        <script>
 			if (!(!!window.WebGLRenderingContext || document.createElement( 'canvas' ).getContext( 'experimental-webgl' )))
 			{
 				location.href = 'snag.html';
 			}
 			</script>
-            <script src="js/libs/three.min.js"></script>
-            <script src="js/libs/dat.gui.min.js"></script>
-            <script src="js/libs/filesaver.min.js"></script>
-			<script src="js/libs/antiscroll.js"></script>
-			<script src="js/libs/threeCSG.js"></script>
-            <script src="js/creatorController.js"></script>
-			<script src="js/tubeMeshParams.js"></script>
-            <script src="js/sceneCubeWrapper.js"></script>
-            <script src="js/CurveExtras.js"></script>
-            <script src="js/sceneWrapper.js"></script>
-            <script src="js/materialsLibrary.js"></script>
-            <script src="js/tubeMeshBuilder.js"></script>
-            <script src="js/inputView.js"></script>
-            <script src="js/curveMaker.js"></script>
-            <script src="js/capSpline.js"></script>
-            <script src="js/materialListener.js"></script>
-            <script src="js/screenShot.js"></script>
-            <script src="js/guiGenerator.js"></script>
-            <script src="js/jsonMaker.js"></script>
-            <script src="js/popups.js"></script>
-            <script src="js/tutorial.js"></script>
-			<script src="js/shapeSliders.js"></script>
-			<script src="js/saveLoad.js"></script>
-			<script src="js/attachLoop.js"></script>
-			<script src="js/progressState.js"></script>
+
+
+        <%= javascript_include_tag "demo/manifest" %>
 
             
 		<script>

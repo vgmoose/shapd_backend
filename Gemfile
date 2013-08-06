@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 # Use mysql2 as the database for Active Record
 gem 'mysql2'
 
+gem 'jquery-ui-rails'
+
 # for development
 gem 'sqlite3'
 
