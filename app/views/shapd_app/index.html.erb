@@ -32,6 +32,7 @@
 			<script src="js/libs/antiscroll.js"></script>
 			<script src="js/libs/threeCSG.js"></script>
             <script src="js/creatorController.js"></script>
+			<script src="js/tubeMeshParams.js"></script>
             <script src="js/sceneCubeWrapper.js"></script>
             <script src="js/CurveExtras.js"></script>
             <script src="js/sceneWrapper.js"></script>
@@ -47,6 +48,9 @@
             <script src="js/popups.js"></script>
             <script src="js/tutorial.js"></script>
 			<script src="js/shapeSliders.js"></script>
+			<script src="js/saveLoad.js"></script>
+			<script src="js/attachLoop.js"></script>
+			<script src="js/progressState.js"></script>
 
             
 		<script>
@@ -117,7 +121,7 @@
 	<body>	
 		
 		<div id = "container" z-index="100"></div>
-        <iframe id="shape_stage" style="left:0;right:0;position:absolute;top:0;"frameborder=0 height=500 width=500></iframe>
+        <iframe id="shape_stage" style="left:0;right:0;position:absolute;top:0;z-index:-500;"frameborder=0 height=500 width=500></iframe>
         <div id = "blackout"></div>
 		
 		<div align = "left" style = "display: none;  padding: 0 !important; bottom: 32.5%; left: 20%; position: absolute; height: 10px; width: 250px;" id = "thicknessContainer">

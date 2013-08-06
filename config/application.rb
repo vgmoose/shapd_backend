@@ -12,9 +12,9 @@ module Shapd
       config.autoload_paths += %W(#{config.root}/lib)
       
       config.action_mailer.default_url_options = { :host => 'shapd.co' }
+      config.action_controller.default_url_options = { :trailing_slash => true }
 
       config.assets.js_compressor = :uglifier
-      config.assets.css_compressor = :yui
       StateMachine::Machine.ignore_method_conflicts = true
 
     config.to_prepare do

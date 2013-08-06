@@ -1,5 +1,5 @@
 cd ./public/demo/
 git pull
-mv index.html ../../app/views/shapd_app/index.html.erb
+mv localindex.html ../../app/views/shapd_app/index.html.erb
 cd ../../app/views/shapd_app/
 cp index.html.erb edit.html.erb
