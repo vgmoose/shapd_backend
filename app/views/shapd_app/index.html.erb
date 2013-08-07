@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="css/popups.css" />
         
         <script>
-			if (!(!!window.WebGLRenderingContext || document.createElement( 'canvas' ).getContext( 'experimental-webgl' )))
+			if (!(!!window.WebGLRenderingContext && document.createElement( 'canvas' ).getContext( 'experimental-webgl' )))
 			{
 				location.href = 'snag.html';
 			}

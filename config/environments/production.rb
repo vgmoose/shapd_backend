@@ -27,7 +27,7 @@ Shapd::Application.configure do
 
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -42,7 +42,7 @@ Shapd::Application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
     
-  config.assets.enabled = true
+config.assets.enabled = true
 
 
   # Set to :debug to see everything in the log.
