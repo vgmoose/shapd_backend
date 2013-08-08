@@ -6,9 +6,9 @@
 # In order to initialize a setting do:
 # config.setting_name = 'new value'
 Spree.config do |config|
-  # Example:
-  # Uncomment to override the default site name.
-  # config.site_name = "Spree Demo Site"
+    # Example:
+    # Uncomment to override the default site name.
+    # config.site_name = "Spree Demo Site"
 end
 
 Spree.user_class = "User"
@@ -22,7 +22,7 @@ Spree::StockItem.class_eval do
 end
 
 Rails.application.config.to_prepare do
-require_dependency 'spree/authentication_helpers'
+    require_dependency 'spree/authentication_helpers'
 end
 
 Spree::Payment.class_eval do
@@ -32,12 +32,6 @@ end
 Spree::StockMovement.class_eval do
     attr_accessible :quantity, :originator
 end
-
-Spree::Order.class_eval do
-    attr_accessible :currency
-end
-
-
 
 
 Spree::Order.class_eval do
@@ -68,12 +62,22 @@ end
 Spree::ShippingMethod.class_eval do
     attr_accessible :name, :display_on, :tracking_url, :calculator_type
     attr_accessible :calculator_attributes
-
+    
 end
 
 Spree::StockLocation.class_eval do
     attr_accessible :name, :active, :backorderable_default, :propagate_all_variants, :address1, :address2, :city, :zipcode, :country_id, :state_id, :phone
 end
+
+Spree::Gateway::PayPal.class_eval do
+    attr_accessible :environment, :display_on, :active, :name, :description
+end
+
+Spree::Gateway::Bogus.class_eval do
+    attr_accessible :environment, :display_on, :active, :name, :description
+end
+
+
 
 Spree::LineItem.class_eval do
     attr_accessible :quantity
@@ -97,7 +101,7 @@ end
 
 
 Spree::Calculator::Shipping::FlatRate.class_eval do
-     attr_accessible :preferred_amount, :preferred_currency
+    attr_accessible :preferred_amount, :preferred_currency
 end
 
 Spree::ShippingCategory.class_eval do
@@ -118,16 +122,17 @@ end
 
 Spree::Order.class_eval do
     attr_accessible :use_billing, :bill_address_attributes
-    attr_accessible :coupon_code
-    attr_accessible :payment_state, :shipment_state, :item_total, :adjustment_total, :payment_total, :total
+    attr_accessible :coupon_code, :line_items_attributes
+    attr_accessible :payment_state, :shipping_method :shipment_state, :item_total, :adjustment_total, :payment_total, :total
     attr_accessible :ship_address_attributes
+    attr_accessible :currency
 end
 
 
 Spree::Product.class_eval do
     attr_accessible :name, :price, :description
     attr_accessible :permalink, :cost_price, :cost_currency, :available_on, :sku, :weight, :height, :width, :depth, :shipping_category_id, :tax_category_id, :taxon_ids, :option_type_ids, :meta_keywords, :meta_description
-
+    
 end
 
 Spree::Gateway::StripeGateway.class_eval do
