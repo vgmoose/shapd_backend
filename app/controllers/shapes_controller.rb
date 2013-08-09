@@ -1,6 +1,7 @@
 class ShapesController < ApplicationController
     before_action :set_shape, only: [:save, :destroy, :screenshot]
-    
+    skip_before_filter :verify_authenticity_token
+
   def validUser?
       current_user.id == @shape['user_id']
   end

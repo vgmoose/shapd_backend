@@ -23,6 +23,11 @@
 			}
 			</script>
 
+        
+        <script>
+        if (location.href.indexOf('/demo/') < 0)
+            location.href = '/demo/';
+        </script>
 
         <%= javascript_include_tag "demo/manifest" %>
 

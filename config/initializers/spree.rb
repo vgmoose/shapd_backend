@@ -9,6 +9,8 @@ Spree.config do |config|
     # Example:
     # Uncomment to override the default site name.
     # config.site_name = "Spree Demo Site"
+    config.default_country_id = 1
+
 end
 
 Spree.user_class = "User"
@@ -35,7 +37,7 @@ end
 
 
 Spree::Order.class_eval do
-    attr_accessible :payments_attributes
+    attr_accessible :payments_attributes, :email
 end
 
 
@@ -88,12 +90,18 @@ Spree::TaxRate.class_eval do
 end
 
 Spree::Adjustment.class_eval do
-	attr_accessible :amount, :source, :originator, :label, :mandatory, :state
+	attr_accessible :amount, :source, :originator, :label, :mandatory, :state, :eligible
 end
 
 Spree::Zone.class_eval do
-    attr_accessible :name, :description, :default_tax, :kind
+    attr_accessible :name, :description, :default_tax, :kind, :zone_members_attributes
+
 end
+
+Spree::ZoneMember.class_eval do
+    attr_accessible :zoneable_type, :zoneable_id
+end
+
 
 Spree::TaxCategory.class_eval do
     attr_accessible :name, :description, :is_default
@@ -102,6 +110,10 @@ end
 
 Spree::Calculator::Shipping::FlatRate.class_eval do
     attr_accessible :preferred_amount, :preferred_currency
+end
+
+Spree::ShippingRate.class_eval do
+    attr_accessible :shipping_method, :cost
 end
 
 Spree::ShippingCategory.class_eval do
@@ -119,11 +131,15 @@ Spree::StateChange.class_eval do
     attr_accessible :previous_state, :next_state, :name, :user_id
 end
 
+Spree::ShippingRate.class_eval do
+    attr_accessible :selected
+end
+
 
 Spree::Order.class_eval do
     attr_accessible :use_billing, :bill_address_attributes
     attr_accessible :coupon_code, :line_items_attributes
-    attr_accessible :payment_state, :shipping_method :shipment_state, :item_total, :adjustment_total, :payment_total, :total
+    attr_accessible :payment_state, :shipping_method, :shipment_state, :item_total, :adjustment_total, :payment_total, :total
     attr_accessible :ship_address_attributes
     attr_accessible :currency
 end
@@ -137,4 +153,6 @@ end
 
 Spree::Gateway::StripeGateway.class_eval do
     attr_accessible :environment, :display_on, :active, :name, :description
+    attr_accessible :preferred_server, :preferred_test_mode
+
 end

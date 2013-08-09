@@ -339,6 +339,7 @@ DEPENDENCIES
   pry
   pry-remote
   rails (= 4.0.0)
+  rake
   ransack!
   sass-rails (~> 4.0.0)
   sdoc
