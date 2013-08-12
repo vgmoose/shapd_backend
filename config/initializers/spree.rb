@@ -16,7 +16,7 @@ end
 Spree.user_class = "User"
 
 Spree::Config.set(logo: "store/shapd.png")
-Spree::Config[:address_requires_state] = false
+Spree::Config[:track_inventory_levels] = false
 
 
 Spree::StockItem.class_eval do
@@ -120,12 +120,26 @@ Spree::ShippingCategory.class_eval do
     attr_accessible :name
 end
 
+Spree::Prototype.class_eval do
+    attr_accessible :name, :property_ids, :option_type_ids
+end
+
 
 Spree::Address.class_eval do
     attr_accessible :country
     attr_accessible :firstname, :lastname, :address1, :address2, :city, :country_id, :zipcode, :phone
     attr_accessible :firstname, :lastname, :address1, :address2, :city, :zipcode, :phone, :state_name, :alternative_phone, :company, :state_id, :country_id
 end
+
+Spree::Property.class_eval do
+    attr_accessible :name, :presentation
+end
+
+Spree::OptionType.class_eval do
+    attr_accessible :name, :presentation
+end
+
+
 
 Spree::StateChange.class_eval do
     attr_accessible :previous_state, :next_state, :name, :user_id
@@ -146,8 +160,9 @@ end
 
 
 Spree::Product.class_eval do
-    attr_accessible :name, :price, :description
+    attr_accessible :name, :price, :description, :id
     attr_accessible :permalink, :cost_price, :cost_currency, :available_on, :sku, :weight, :height, :width, :depth, :shipping_category_id, :tax_category_id, :taxon_ids, :option_type_ids, :meta_keywords, :meta_description
+    attr_accessible :prototype_id
     
 end
 
