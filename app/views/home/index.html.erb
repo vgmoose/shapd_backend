@@ -238,7 +238,9 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
                                 
                                 								<li class="hidden-phone"><a href="/library">My Library</a></li>
                                                                 <li class="hidden-phone"><a href="/gallery">Gallery</a></li>
-                                                                
+                                                                                                               <% if !current_user.oreo.nil? %>
+                                                <li class="hidden-phone"><a href="/darkroom">Darkroom</a></li>
+                                                <% end %>
                                                                <!-- <li class="hidden-phone"><a href="#">Admin</a></li> -->
                                                                 								<li class="hidden-phone"><a href="/logout">Logout</a></li>
 

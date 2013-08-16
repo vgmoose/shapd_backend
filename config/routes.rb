@@ -44,6 +44,7 @@ Shapd::Application.routes.draw do
     post '/save' => 'shapes#save'
     
     get '/library' => 'home#library'
+    get '/darkroom' => 'home#darkroom'
     get '/gallery' => 'home#gallery'
     
     post '/meta' => 'shapes#screenshot'

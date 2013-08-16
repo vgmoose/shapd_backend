@@ -1,5 +1,5 @@
 <head>
-
+ 
 <style>
         ul {
         display: inline-block;
@@ -11,9 +11,9 @@
     }
     li {
         padding: 2px 5px;
-        list-style:none; 
+        list-style:none;
     }
-    
+   
     input
     {
         border:1px solid #ccc;
@@ -21,54 +21,54 @@
         line-height:20px;
         min-height:20px;
         font-size:13px;
-        
+       
         width:200px;
-        
+       
         border-radius:3px;
         -moz-border-radius:3px;
         -webkit-border-radius:3px;
-        
+       
         transition:border linear .25s,
         box-shadow linear .25s;
         -webkit-transition:border linear .25s,
         box-shadow linear .25s;
         -moz-transition:border linear .25s,
         box-shadow linear .25s;
-        
+       
         box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
         -webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
         -moz-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
-        
+       
         background-color:#F9F9F9;
     }
-    
-        
+   
+       
     textarea
     {
         border:1px solid #ccc;
         padding:4px 4px;
         font-size:13px;
-        
+       
         width:200px;
-        
+       
         border-radius:3px;
         -moz-border-radius:3px;
         -webkit-border-radius:3px;
-        
+       
         transition:border linear .25s,
         box-shadow linear .25s;
         -webkit-transition:border linear .25s,
         box-shadow linear .25s;
         -moz-transition:border linear .25s,
         box-shadow linear .25s;
-        
+       
         box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
         -webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
         -moz-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
-        
+       
         background-color:#F9F9F9;
     }
-    
+   
        
 .swoopr
 {
@@ -82,7 +82,7 @@
     left: 50%;
      margin-left: -300px;
     margin-top: -20px;
-    
+   
     <% if user_signed_in? %>
     height:100px;
     <% else %>
@@ -94,7 +94,7 @@
     {
         font-family: helvetica, arial;
     }
-    
+   
     #idSavedShapeLibrary
     {
         <% !if user_signed_in? %>
@@ -105,7 +105,7 @@
         border-radius: 10px;
         background-color: white;
     }
-    
+   
     #public
     {
         height:400px;
@@ -122,54 +122,155 @@
         z-index:99999;
         display:none;
     }
-
-
-    
+ 
+ 
+   
 </style>
 <div id='register' class='swoopr'></div>
 <div id='publish' class='swoopr'></div>
 <script>
-    
+   
 var whatis = "";
-
+ 
 <% if user_signed_in? %>
     userID = "<%= current_user.id %>";
     <% if params[:meta] != "1" %>
     var shapeLib =  "<%  shape_counts =  Shape.where(:user_id => current_user.id) %><% shape_counts.each do |shape| %><a href=\"javascript:loadFromLib('<%= shape.shape %>')\"><img class='galleryImg' src='/shapes/<%=shape.id %>.png' height='100' width='100'></a><% end %>"
     <% end %>
 <% end %>
-    
+   
 <% if @shape != nil %>
 var savedShape = "<%= @shape[:shape] %>";
 var shapeID = "<%= @shape[:id] %>";
-
+ 
 <% end %>
-
+ 
 <% if defined? @view %>
     var viewer = true;
     shapeID = -1;
 <% end %>
-
+ 
 <% if user_signed_in? %>
-
+ 
 <% if Feedback.where(user_id: current_user.id).empty? %>
 var noFeedback = true;
 <% end %>
 <% end %>
-
-
-
+ 
+<% if defined? @oreo %>
+        var printingUser = true;
+ 
+         var saveSTL = document.createElement('button');
+         saveSTL.style.position = 'absolute';
+         saveSTL.style.top = '0px';
+         saveSTL.style.right = '0%';
+         saveSTL.style.zIndex = '1001';
+         saveSTL.id = 't';
+         saveSTL.innerHTML = "Save STL";
+         document.body.appendChild(saveSTL);
+        function dothing()
+        {
+                        sceneWrapper.redrawFigureOnly();
+                        var stlFile = createSTL(currentMesh.figure);
+                        var blob = new Blob ([stlFile], {type: 'text/plain'});
+                        saveAs (blob, 'test.stl');
+        }
+ 
+        function createSTL(mesh)
+        {
+                var vertices = mesh.geometry.vertices;
+                var faces = mesh.geometry.faces;
+                var radiusSegments = 56;
+                var closed = isClosed(mesh.startingShape);
+                       
+                        stl = 'solid test \n';
+                        for (var i = 0; i < faces.length; i++)
+                        {
+                                stl += 'facet normal ' + convertVectorToString(faces[i].normal) + ' \n';
+                                stl += 'outer loop \n';
+                                stl += convertVertexToString(vertices[faces[i].a]);
+                                stl += convertVertexToString(vertices[faces[i].b]);
+                                stl += convertVertexToString(vertices[faces[i].c]);
+                                stl += 'endloop \n';
+                                stl += 'endfacet \n';
+                               
+                                if ((i < faces.length - (2 * (radiusSegments - 2)) && closed == false) || closed == true)
+                                {
+                                        stl += 'facet normal ' + convertVectorToString(faces[i].normal) + ' \n';
+                                        stl += 'outer loop \n';
+                                        stl += convertVertexToString(vertices[faces[i].a]);
+                                        stl += convertVertexToString(vertices[faces[i].c]);
+                                        stl += convertVertexToString(vertices[faces[i].d]);
+                                        stl += 'endloop \n';
+                                        stl += 'endfacet \n';
+                                }
+                        }
+ 
+                        if (loop.torusDefined)
+                        {
+                                faces = loop.loopMesh.geometry.faces;
+                                vertices = loop.loopMesh.geometry.vertices;
+                               
+                                for (var i = 0; i < faces.length; i++)
+                                {
+                                        stl += 'facet normal ' + convertVectorToString(faces[i].normal, true) + ' \n';
+                                        stl += 'outer loop \n';
+                                        stl += convertVertexToString(vertices[faces[i].a], true);
+                                        stl += convertVertexToString(vertices[faces[i].b], true);
+                                        stl += convertVertexToString(vertices[faces[i].c], true);
+                                        stl += 'endloop \n';
+                                        stl += 'endfacet \n';
+                                       
+                                        stl += 'facet normal ' + convertVectorToString(faces[i].normal, true) + ' \n';
+                                        stl += 'outer loop \n';
+                                        stl += convertVertexToString(vertices[faces[i].a], true);
+                                        stl += convertVertexToString(vertices[faces[i].c], true);
+                                        stl += convertVertexToString(vertices[faces[i].d], true);
+                                        stl += 'endloop \n';
+                                        stl += 'endfacet \n';
+                                }
+                        }
+                        stl += 'endsolid';
+                       
+                        return stl;
+        }
+ 
+        function convertVectorToString(vector, isTorus)
+        {
+                if (isTorus)
+                        return ''+ vector.x*loop.torusMesh.scale.x + ' '+ vector.y*loop.torusMesh.scale.x + ' '+ vector.z*loop.torusMesh.scale.x;
+                else
+                        return ''+ vector.x*currentMesh.figure.scale.x + ' '+ vector.y*currentMesh.figure.scale.y + ' '+ vector.z*currentMesh.figure.scale.z;
+        }
+ 
+        function convertVertexToString(vector, isTorus)
+        {
+                return 'vertex '+ convertVectorToString(vector, isTorus) + ' \n';
+        }
+ 
+        function isClosed(startingShape)
+        {
+                var a = startingShape;
+                if (a === 1 || a === 7 || a === 8 || a === 9 || a === 10 || a === 11 || a === 12 || a === 13 || a === 14 || a === 15 || a === 16  )
+                {
+                        return true;
+                }
+                else
+                        return false;
+        }
+<% end %>
+ 
 var authToken = "<%= form_authenticity_token %>";
 <%
 if (params[:meta] == "1") %>
     var screenShot = true;
-
+ 
 <% end %>
     <% if params[:action] == 'index' %>
         var newuser = true;
     <% end %>
 var freeze = false;
-    
+   
 function hideTheBeast(state)
 {
     if (typeof viewer !== 'undefined')
@@ -177,46 +278,46 @@ function hideTheBeast(state)
         setTimeout("location.href='/library';", 500);
         return;
     }
-    
+   
     if (state == 'finalize' && !printable)
         getNewPrice();
-        
+       
     if (state == 'publish')
     {
         getFeedback();
     }
     else
         freeze = false;
-
-    
+ 
+   
     $("#register").animate({top:'-575px'}, 300);
     $("#blackout2").fadeOut(500);
-    
-
+   
+ 
 }
-
-    
+ 
+   
 function hideAndNext()
 {
     setTimeout("$('#idSaveButton').mousedown()", 500);
    // hideTheBeast()
 }
-    
+   
     <% if !user_signed_in? and params['view'].nil? %>
     var notSignedIn = true;
-    
+   
 function enterKey()
 {
     if (window.event && window.event.keyCode == 13)
         submitReg();
 }
-
+ 
 function enterKey2()
 {
     if (window.event && window.event.keyCode == 13)
         submitLog();
 }
-
+ 
 function dunGoofed(data, user, passw, passw2)
     {
         var thing = "things";
@@ -224,120 +325,120 @@ function dunGoofed(data, user, passw, passw2)
         num = num.toString().match(/\d/g);
         if (num==1)
             thing = "thing";
-            
+           
         data = data.replace("error ", "errors ");
-            
+           
         register.innerHTML = "<br><h1>Whoops!</h1>"+data.replace("errors prohibited this user from being saved", "quick "+thing)+"<br>Email address<br><input placeholder='you@example.com' onkeypress='enterKey()' type='text' id='user_email' value='"+user+"'></input><br><br>Password<br><input placeholder='6 or more characters' onkeypress='enterKey()' id='user_password' type='password' value='"+passw+"'></input><br><br>Confirm Password:<br><input   placeholder='just to be sure!' onkeypress='enterKey()' value='"+passw2+"' id='user_password_confirmation' type='password'></input><br><br><br><button onclick='hideTheBeast(whatis);newuser=true;' class='tutButton buttonImg'>No, thanks.</button><button onclick='submitReg()' class='tutButton buttonImg verdana'>Continue!</button><br><br><a href='javascript:realLogin()'><font color=white><u><b>Already have an account?</b></u></font></a>";
         newuser = true;
         $("#register").animate({height: '575px'}, 300);
-        
+       
     }
     <% end %>
-    
+   
 function realLogin()
 {
     register.innerHTML = "<br><h1>Welcome back!</h1><br>Email address<br><input placeholder='you@example.com' onkeypress='enterKey2()' type='text' id='user_email'></input><br><br>Password<br><input  onkeypress='enterKey2()' placeholder='shhh... tell no one' id='user_password' type='password'></input><br><br><br><button onclick='createNewUser();newuser=true;' class='tutButton buttonImg'>Go Back</button><button onclick='submitLog()' class='tutButton buttonImg verdana'>Login</button>";
     $("#register").animate({height: '400px'}, 300);
-
+ 
 }
-
+ 
 function dunGoofedTheSequel(data, user, pass)
 {
        register.innerHTML = "<br><h1>Whoops!</h1><br>"+data+"<br><br><br>Email address<br><input value='"+user+"' placeholder='you@example.com'  onkeypress='enterKey2()' type='text' id='user_email'></input><br><br>Password<br><input value='"+pass+"' onkeypress='enterKey2()' placeholder='shhh... tell no one' id='user_password' type='password'></input><br><br><br><button onclick='createNewUser();newuser=true;' class='tutButton buttonImg'>Go Back</button><button onclick='submitLog()' class='tutButton buttonImg verdana'>Login</button>";
         $("#register").animate({height: '450px'}, 300);
 }
-
+ 
 function submitLog()
 {
-
+ 
     user = document.getElementById('user_email').value;
     pass = document.getElementById('user_password').value;
-    
+   
     $.post("/login", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value}, authenticity_token: authToken, utf8: '✓'}, function(data){setupSaveShape();for (var i = 1; i < 4; i++){document.getElementById('idProgressImg'+i).className = 'buttonImg';document.getElementById('idProgressImgNamesId'+i).className = 'buttonImg';}}).fail( function(xhr, textStatus, errorThrown) {dunGoofedTheSequel(xhr.responseText, user, pass);});
-
+ 
     window.noFeedback = true;
-
-        
+ 
+       
     register.innerHTML = "<br><h1>Logging in...</h1>";
     $("#register").animate({height: '100px'}, 300);
-
+ 
 }
-    
+   
 function submitReg()
 {
     email1 = document.getElementById('user_email').value;
     pass1 = document.getElementById('user_password').value;
     pass2 = document.getElementById('user_password_confirmation').value;
-
+ 
     $.post("/users", {user: {email: document.getElementById('user_email').value, password: document.getElementById('user_password').value, password_confirmation:document.getElementById('user_password_confirmation').value}, authenticity_token: authToken, utf8: '✓'}, function(data){if (data.indexOf("success!")>-1) {setupSaveShape();for (var i = 1; i < 4; i++){document.getElementById('idProgressImg'+i).className = 'buttonImg';document.getElementById('idProgressImgNamesId'+i).className = 'buttonImg';}} else dunGoofed(data, email1, pass1, pass2)});
-    
+   
     window.noFeedback = true;
-    
+   
     register.innerHTML = "<br><h1>Creating Account...</h1>";
     $("#register").animate({height: '100px'}, 300);
 }
-
+ 
 function setupSaveShape()
 {
     newuser = false;
     $("#blackout2").fadeOut(500);
-    
+   
     register.innerHTML = "<br><h1>Saving creation...</h1></input>";
     $("#register").animate({top:'0'}, 300);
    // setTimeout("$('#idSaveButton').click()", 1);
-    
+   
     if (typeof notSignedIn === 'undefined')
         $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape();});
     else
         $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; setTimeout("$('#idSaveButton').mousedown()", 10);});
-
-
+ 
+ 
     //$.post("/new", {authenticity_token: authToken, shape: hashend}, function(data2){shapeID = data2; newuser =  false; saveShape()});
 }
-
+ 
 function createNewUser()
 {
     var black = document.createElement("div");
-        
+       
     <% if !user_signed_in? and params['view'].nil? %>
     black.setAttribute("id", "blackout2");
     document.body.appendChild(black);
         register.innerHTML = "<br><br><h1>What's your name again?</h1>Sorry, but you'll have to create an account to save your item.</input><br><br>Email address<br><input type='text' onkeypress='enterKey()'  placeholder='you@example.com' id='user_email'></input><br><br>Password (6+ characters)<br><input id='user_password'  placeholder='6 or more characters' onkeypress='enterKey()' type='password'></input><br><br>Confirm Password<br><input id='user_password_confirmation' placeholder='just to be sure!'  onkeypress='enterKey()' type='password'></input><br><br><br><div id='publishActionContainer' width='100%' style='text-align:center'><button class='tutButton buttonImg verdana' onclick='hideTheBeast(whatis);newuser=true;'>No, thanks.</button><button class='tutButton buttonImg' onclick='submitReg()'>Continue!</button></div><br><a href='javascript:realLogin()'><font color=white><u><b>Already have an account?</b></u></font></a>";
-        
+       
         // register.innerHTML = '<br><br><h1>What\'s your name again?</h1><br>Sorry, but we need to know who you are so we can save your item.<br></input><br><<iframe src="/login_other" width="450" frameborder="no" height="250"></iframe>';
         freeze = true;
         newuser =  false;
     $("#register").animate({top:'0', height: '575px'}, 300);
     $("#blackout2").fadeIn(500);
-
-
+ 
+ 
     //    $("#register").clearQueue().fadeIn(500);
-
+ 
     <% else %>
         newuser = false;
         register.innerHTML = "<br><h1>Saving creation...</h1";
     $("#register").animate({top:'0'}, 300);
     setTimeout("$('#idSaveButton').mousedown()", 1);
-
-
+ 
+ 
    // $.post("/new", {authenticity_token: authToken, shape: hashend}, function(data){shapeID = data; newuser =  false; saveShape()});
-    
+   
     <% end %>
-    
-
+   
+ 
 }
-
+ 
 <% if (params[:meta] == "1") %>
 var screenShot = true;
 <% end %>
-    
-    
+   
+   
 function saveShape()
 {
     <% if (!user_signed_in? and !params['view'].nil?) %>
         location.href = '/';
     <% end %>
-        
+       
     if (typeof shapeID !== 'undefined' && shapeID != -1)
     {
         register.innerHTML = "<br><h1>Saving creation...</h1>";
@@ -348,8 +449,8 @@ function saveShape()
     else
         setupSaveShape();
 }
-
+ 
 </script>
 </head>
-
+ 
 <%= yield %>

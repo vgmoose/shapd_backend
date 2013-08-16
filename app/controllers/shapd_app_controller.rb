@@ -67,7 +67,7 @@ class ShapdAppController < ApplicationController
         @shape = Shape.find(params[:id])
         
         # if a user is logged in, and their user_id matches the shape's owner
-        if (!current_user.nil? and @shape[:user_id] == current_user[:id]) or (((defined? @view) or (!params[:meta].nil?)) and @shape.public==1)
+        if ((!current_user.nil? and @shape[:user_id] == current_user[:id]) or (((defined? @view) or (!params[:meta].nil?)) and @shape.public==1) or !@oreo.nil?)
             respond_to do |format|
                 # deny access if those conditions aren't met
                 format.html {render action: "index", layout: "create_loader"}

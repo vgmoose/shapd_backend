@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Shapd - Public Gallery</title>
+	<title>Shapd - Private Darkroom</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="css/prettyPhoto.css">
 
 	<script type="text/javascript">
-		
+
 		// ----------------------------------------------
 		// CUSTOM GOOGLE FONT
 		// ----------------------------------------------
@@ -135,9 +135,9 @@ display: table-cell; vertical-align: middle;
                                 
                                 								<li class="hidden-phone"><a href="/">Home</a></li>
                                 								<li class="hidden-phone"><a href="/library">My Library</a></li>
-                                               <li class="hidden-phone"><a href="#gallery">Gallery</a></li>
+                                               <li class="hidden-phone"><a href="/gallery">Gallery</a></li>
                                                <% if !current_user.oreo.nil? %>
-                                                <li class="hidden-phone"><a href="/darkroom">Darkroom</a></li>
+                                                <li class="hidden-phone"><a href="#Darkroom">Darkroom</a></li>
                                                 <% end %>
 
                                                                 
@@ -155,9 +155,9 @@ display: table-cell; vertical-align: middle;
 
 		</header>
         
-        <section class="gallery" id="gallery">
+        <section class="Darkroom" id="Darkroom">
             <div class="container"><br><br>
-            <div style="float:left"><h1>Public Gallery</h1></div> <div style="float:right;padding:15px;display:inline-block;">
+            <div style="float:left"><h1>Backroom</h1></div> <div style="float:right;padding:15px;display:inline-block;">
             
             <!-- <a href=/demo/><font size="6"><i class="icon-plus-sign"></i></font><span style="display:inline-block;vertical-align:middle">Create New Object </span></a> --></div>
             <br>
@@ -169,8 +169,7 @@ display: table-cell; vertical-align: middle;
                 <% shape_counts.each do |shape| %>
                 
                     <div class="box" id="shape<%= shape.id %>">
-                    <a href='/demo/<%=shape.id%>?view=1'><img src='/shapes/<%=shape.id %>.png' height="150" width="150"> </a>
-                    <!--<iframe id="shape<%= shape.id %>" style="height:140px;width:150px;" src="/demo/<%= shape.id %>?meta=1"></iframe> -->
+                    <a href='/demo/<%=shape.id%>?print=1'><img src='/shapes/<%=shape.id %>.png' height="150" width="150"> </a>
                     
                      
                        <br>
@@ -184,6 +183,29 @@ display: table-cell; vertical-align: middle;
                     
                     
                     <% end %>
+
+            
+            
+            
+            
+            <!--
+                <%  order_counts =  Spree::Order.where({state: "confirm"}, :order => "id desc") %>
+
+
+                <% order_counts.each do |order| %>
+                
+                    <% product_counts = Spree::LineItem.where({order_id: order.id}, order: "id desc") %>
+                    <% product_counts.each do |product| %>
+                
+                    <div class="box">
+                    <a href='/demo/<%=product.id%>?print=1'><img src='/shapes/<%=product.id %>.png' height="150" width="150"> </a>
+                     
+                       <br>
+                        </div>  
+                    
+                    <% end %>
+                    <% end %>
+                    -->
            
             </div>
             </div>
