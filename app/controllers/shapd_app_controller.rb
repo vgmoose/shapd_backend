@@ -59,6 +59,10 @@ class ShapdAppController < ApplicationController
             @view = true
         end
         
+        if (!params[:print].nil? and !current_user[:id].oreo.nil?)
+            @oreo = true
+        end
+        
         # find the shape id from URL
         @shape = Shape.find(params[:id])
         
