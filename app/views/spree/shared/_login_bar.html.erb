@@ -2,7 +2,7 @@
 
 <% if spree_current_user %>
   <li>
-    <%= link_to Spree.t(:logout), spree_logout_path, :method => :delete %>
+    <%= link_to Spree.t(:logout), spree_logout_path %>
   </li>
 <% else %>
   <li>

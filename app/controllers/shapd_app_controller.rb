@@ -59,7 +59,7 @@ class ShapdAppController < ApplicationController
             @view = true
         end
         
-        if (!params[:print].nil? and !current_user[:id].oreo.nil?)
+        if (!params[:print].nil? and !current_user[:oreo].nil?)
             @oreo = true
         end
         
