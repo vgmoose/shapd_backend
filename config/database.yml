@@ -5,7 +5,8 @@ production:
     database: shapd_production
     username: root
     password: 123shapdmysql
-    host: 127.0.0.1
+    host: shapd2.cxu180ipkbub.us-west-2.rds.amazonaws.com
+    port: 3306
     socket: /tmp/mysql.sock
 
 development:
