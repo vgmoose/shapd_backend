@@ -1,13 +1,9 @@
 
 production:
-    adapter: mysql2
-    encoding: utf8
-    database: shapd_production
-    username: root
-    password: 123shapdmysql
-    host: shapd2.cxu180ipkbub.us-west-2.rds.amazonaws.com
-    port: 3306
-    socket: /tmp/mysql.sock
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
 
 development:
   adapter: sqlite3
