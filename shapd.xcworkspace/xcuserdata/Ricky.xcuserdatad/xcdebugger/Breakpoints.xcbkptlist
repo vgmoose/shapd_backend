@@ -27,5 +27,16 @@
          startingLineNumber = "59"
          endingLineNumber = "59">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "config/environments/production.rb"
+         timestampString = "398701791.058986"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "17"
+         endingLineNumber = "17">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

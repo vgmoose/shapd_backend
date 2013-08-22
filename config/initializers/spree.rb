@@ -23,6 +23,15 @@ Spree::StockItem.class_eval do
     attr_accessible :variant, :backorderable
 end
 
+Spree::Image.class_eval do
+    attr_accessible :attachment
+end
+
+Spree::Product.class_eval do
+    attr_accessible :name, :price, :meta_description, :description
+end
+
+
 Rails.application.config.to_prepare do
     require_dependency 'spree/authentication_helpers'
 end
@@ -157,6 +166,7 @@ Spree::Order.class_eval do
     attr_accessible :ship_address_attributes
     attr_accessible :currency
 end
+
 
 
 Spree::Product.class_eval do

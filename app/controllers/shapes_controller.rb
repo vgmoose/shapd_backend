@@ -17,14 +17,6 @@ class ShapesController < ApplicationController
     
   def make_product
       
-      Spree::Image.class_eval do
-          attr_accessible :attachment
-      end
-      
-      Spree::Product.class_eval do
-          attr_accessible :name, :price, :meta_description, :description
-      end
-      
       @shape = Shape.find(shape_params[:id])
       
       if (@shape.name.nil?)

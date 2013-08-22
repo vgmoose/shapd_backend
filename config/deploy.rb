@@ -24,3 +24,10 @@ after "deploy:update", "newrelic:notice_deployment"
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+namespace :deploy do
+    desc "reload the database with seed data"
+    task :seed do
+        run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
+    end
+end
