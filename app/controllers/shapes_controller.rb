@@ -1,9 +1,9 @@
 class ShapesController < ApplicationController
-    before_action :set_shape, only: [:save, :destroy, :screenshot]
+    before_filter :set_shape, :only => [:save, :destroy, :screenshot]
     skip_before_filter :verify_authenticity_token
 
   def validUser?
-      current_user.id == @shape['user_id']
+      current_user.id == @shape.user_id
   end
     
   def make_public
@@ -73,11 +73,11 @@ class ShapesController < ApplicationController
       
       
     respond_to do |format|
-      if @shape.update(shape_params)
+        # if @shape.update(shape_params)
           format.html { render nothing: true, notice: 'Shape was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
+        # else
+        #  format.html { render action: 'edit' }
+        # end
     end
   end
     

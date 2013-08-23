@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '3.2.14'
 
 # Use mysql2 as the database for Active Record
 gem 'mysql2'
@@ -16,25 +16,21 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'newrelic_rpm'
-gem 'spree', github: 'spree/spree', branch: 'rails4'
-gem 'ransack', github: 'ernie/ransack', branch: 'rails-4'
+gem 'spree', '2.0.4'
+gem 'ransack'
 
 gem 'oauth'
 
-gem 'spree_gateway', github: 'vgmoose/spree_gateway'
-
-gem 'activerecord-session_store'
-
-gem 'protected_attributes'
+gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :branch => '2-0-stable'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails',   '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
 
 gem 'yui-compressor'
 
@@ -66,6 +62,8 @@ end
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
+
+gem 'strong_parameters'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
