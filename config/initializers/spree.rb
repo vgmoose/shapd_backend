@@ -6,14 +6,13 @@
 # In order to initialize a setting do:
 # config.setting_name = 'new value'
 Spree.config do |config|
-    # Example:
-    # Uncomment to override the default site name.
-    # config.site_name = "Spree Demo Site"
-    config.default_country_id = 1
-
+  # Example:
+  # Uncomment to override the default site name.
+  # config.site_name = "Spree Demo Site"
 end
 
 Spree.user_class = "User"
 
-Spree::Config.set(logo: "store/shapd.png")
-Spree::Config[:track_inventory_levels] = false
+  Rails.application.config.to_prepare do
+    require_dependency 'spree/authentication_helpers'
+  end

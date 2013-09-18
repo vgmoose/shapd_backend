@@ -15,8 +15,8 @@ gem 'sqlite3'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'newrelic_rpm'
-gem 'spree', '2.0.4'
+gem 'spree', github: 'spree/spree', branch: '2-0-stable'
+
 gem 'ransack'
 
 gem 'oauth'
@@ -73,4 +73,4 @@ gem 'devise', '~> 3.0.0.rc'
 gem "mocha", group: :test
 gem "pry"
 gem "pry-remote"
-
+gem "i18n"

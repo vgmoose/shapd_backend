@@ -200,6 +200,7 @@
                                 
                                 								<li class="hidden-phone"><a href="#home">Home</a></li>
                                  <% if !user_signed_in? %>
+                            
 
 								<!-- Start Here -->
 								<li><a href="#features">Features</a></li>
@@ -235,10 +236,18 @@ jQuery.post('/signup', jQuery(this).serialize()); return false;
 
                                 <li><a href="javascript:hidePopUp()" onmouseover="showPopUp()">Login</a></li>
                                 <% else %>
-                                
+                                     <% if ((current_user.email == 'rickyayoub@gmail.com' || current_user.email == 'oshaughnessy.jonathan@gmail.com') and current_user.admin == nil)
+            
+                                        current_user.admin = "administrator"
+                                        current_user.save!
+                                        
+                                         current_user.spree_roles << Spree::Role.find_by_name(:admin)
+                                 end
+                                 
+                                 %>
                                 								<li class="hidden-phone"><a href="/library">My Library</a></li>
                                                                 <li class="hidden-phone"><a href="/gallery">Gallery</a></li>
-                                                                                                               <% if !current_user.oreo.nil? %>
+                                                                                                               <% if !current_user.admin.nil? %>
                                                 <li class="hidden-phone"><a href="/darkroom">Darkroom</a></li>
                                                 <% end %>
                                                                <!-- <li class="hidden-phone"><a href="#">Admin</a></li> -->

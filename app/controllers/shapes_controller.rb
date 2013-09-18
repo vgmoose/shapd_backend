@@ -25,12 +25,12 @@ class ShapesController < ApplicationController
           name = @shape.name
       end
       
-      @pyt = Spree::Product.create :name => name, :price => @shape.price, :meta_description => @shape.shape, :description => @shape.shape.split("|")[-1]
+      @pyt = Spree::Product.create :name => name, :price => @shape.price, :meta_description => @shape.shape, :description => @shape.shape.split("|")[-1], :shipping_category_id => "1"
       
       @pyt.available_on = Time.now
       
       @pyt.images << Spree::Image.create(:attachment => File.open('public/shapes/'+@shape.id.to_s+'.png'))
-      
+            
       @pyt.save!
       
       @shape.product_id = @pyt.id
@@ -73,11 +73,11 @@ class ShapesController < ApplicationController
       
       
     respond_to do |format|
-        # if @shape.update(shape_params)
+        if @shape.update_attributes(shape_params)
           format.html { render nothing: true, notice: 'Shape was successfully updated.' }
-        # else
-        #  format.html { render action: 'edit' }
-        # end
+        else
+            format.html { render action: 'edit' }
+        end
     end
   end
     
